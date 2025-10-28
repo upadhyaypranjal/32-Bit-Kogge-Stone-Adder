@@ -274,20 +274,6 @@ This associative operator enables parallel prefix computation across all bit pos
 
 ## 🧪 Simulation & Test Results
 
-### Test Coverage
-
-<div align="center">
-
-| **Test Category** | **Test Cases** | **Coverage** | **Status** |
-|:-----------------|:--------------:|:------------:|:----------:|
-| Basic Addition | 256 | 100% | ✅ PASS |
-| Boundary Values | 50 | 100% | ✅ PASS |
-| Overflow Detection | 100 | 100% | ✅ PASS |
-| Random Tests | 10,000 | 100% | ✅ PASS |
-| **Total** | **10,406** | **100%** | **✅ PASS** |
-
-</div>
-
 ```
 ### Sample Test Cases
 ```verilog
@@ -306,6 +292,7 @@ A = 8'b10000000 (128), B = 8'b10000000 (128)
 Expected: SUM = 8'b00000000 (0), OVERFLOW = 1
 Result: ✅ PASS
 ```
+---
 
 ### Gate-Level Schematic
 

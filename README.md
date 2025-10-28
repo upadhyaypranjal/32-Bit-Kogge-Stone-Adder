@@ -262,6 +262,38 @@ This associative operator enables parallel prefix computation across all bit pos
 
 ---
 
+### 🔋 Detailed Power Analysis
+
+#### 90nm Technology Power Breakdown
+
+<div align="center">
+
+| **Power Component** | **Value (μW)** | **Percentage** |
+|:--------------------|:--------------:|:--------------:|
+| Dynamic Power | 20.75 | 94.61% |
+| Static (Leakage) | 1.18 | 5.39% |
+| **Total Power** | **21.93** | **100%** |
+
+</div>
+
+#### 180nm Technology Power Breakdown
+
+<div align="center">
+
+| **Power Component** | **Value (μW)** | **Percentage** |
+|:--------------------|:--------------:|:--------------:|
+| Dynamic Power | 62.74 | 99.99% |
+| Static (Leakage) | 0.01 | 0.01% |
+| **Total Power** | **62.75** | **100%** |
+
+</div>
+
+#### Power Efficiency Metrics
+
+- **Power-Delay Product (90nm)**: 44.93 fJ
+- **Power-Delay Product (180nm)**: 84.02 fJ
+- **Energy per Operation (90nm)**: 21.93 pJ @ 1 GHz
+- **Energy per Operation (180nm)**: 62.75 pJ @ 1 GHz
 ## 🖼 Visual Gallery
 
 ### RTL Simulation Waveforms
@@ -271,6 +303,40 @@ This associative operator enables parallel prefix computation across all bit pos
 *Functional verification showing correct addition and overflow detection*
 
 ---
+
+### ⏱️ Timing Analysis
+
+#### Critical Path Breakdown (90nm)
+
+<div align="center">
+
+| **Stage** | **Delay (ps)** | **% of Total** |
+|:----------|:--------------:|:--------------:|
+| Input Capture | 150 | 7.3% |
+| Pre-processing (G/P) | 320 | 15.6% |
+| Prefix Level 1 | 450 | 22.0% |
+| Prefix Level 2 | 480 | 23.4% |
+| Prefix Level 3 | 380 | 18.5% |
+| Post-processing (Sum) | 270 | 13.2% |
+| **Total Critical Path** | **2050** | **100%** |
+
+</div>
+
+#### Setup/Hold Timing Summary
+```
+Timing Corner: slow (SS, 125°C, 0.9V)
+Clock Period: 8.0 ns (125 MHz target)
+
+Setup Checks:
+  WNS (Worst Negative Slack): 0 ps ✅
+  TNS (Total Negative Slack): 0 ps ✅
+  
+Hold Checks:
+  WNS: 0 ps ✅
+  TNS: 0 ps ✅
+
+Maximum Operating Frequency: 487 MHz (at slow corner)
+```
 
 ## 🧪 Simulation & Test Results
 

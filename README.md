@@ -85,8 +85,6 @@ This associative operator enables parallel prefix computation across all bit pos
 
 ---
 
----
-
 ## 🔄 Complete ASIC Design Flow
 ```
 ┌─────────────────────────────────────────────────────────────┐

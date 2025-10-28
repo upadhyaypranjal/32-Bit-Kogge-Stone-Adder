@@ -85,6 +85,61 @@ This associative operator enables parallel prefix computation across all bit pos
 
 ---
 
+---
+
+## 🔄 Complete ASIC Design Flow
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    SPECIFICATION                             │
+│              (8-bit Kogge-Stone Adder)                      │
+└────────────────────────┬────────────────────────────────────┘
+                         │
+                         ▼
+┌─────────────────────────────────────────────────────────────┐
+│                   RTL DESIGN (Verilog)                      │
+│         • Parameterized architecture                         │
+│         • 3-stage prefix network                            │
+└────────────────────────┬────────────────────────────────────┘
+                         │
+                         ▼
+┌─────────────────────────────────────────────────────────────┐
+│              FUNCTIONAL VERIFICATION                         │
+│         • Testbench with 10,000+ test cases                 │
+│         • Self-checking assertions                          │
+│         • Waveform analysis                                 │
+└────────────────────────┬────────────────────────────────────┘
+                         │
+                         ▼
+┌─────────────────────────────────────────────────────────────┐
+│              LOGIC SYNTHESIS (Genus)                        │
+│         • Technology mapping (90nm/180nm)                   │
+│         • Timing optimization                               │
+│         • Area & power optimization                         │
+└────────────────────────┬────────────────────────────────────┘
+                         │
+                         ▼
+┌─────────────────────────────────────────────────────────────┐
+│            PHYSICAL DESIGN (Innovus)                        │
+│         • Floorplanning                                     │
+│         • Placement & CTS                                   │
+│         • Routing                                           │
+└────────────────────────┬────────────────────────────────────┘
+                         │
+                         ▼
+┌─────────────────────────────────────────────────────────────┐
+│           VERIFICATION & SIGNOFF                            │
+│         • DRC (Design Rule Check)                           │
+│         • LVS (Layout vs Schematic)                         │
+│         • STA (Static Timing Analysis)                      │
+└────────────────────────┬────────────────────────────────────┘
+                         │
+                         ▼
+┌─────────────────────────────────────────────────────────────┐
+│                  GDSII GENERATION                           │
+│              (Ready for Fabrication)                        │
+└─────────────────────────────────────────────────────────────┘
+```
+
 ## 📊 Results
 ## 🔬 Performance Comparison (Post-Synthesis)
 
@@ -168,31 +223,6 @@ This associative operator enables parallel prefix computation across all bit pos
 - ✅ **Optimization Focus**: Aggressive timing constraints drive performance optimization, while relaxed constraints allow area/power optimization
 
 ---
-
-### 📈 Performance Visualization
-
-<div align="center">
-
-#### Area vs Technology Node
-```
-Technology:  180nm ████████████████████ (542.20 μm²)
-             90nm  ███████ (176.36 μm²)
-                   0        200        400        600
-```
-
-#### Power Consumption Comparison
-```
-Technology:  180nm ████████████████████████ (62.75 μW)
-             90nm  ████████ (21.93 μW)
-                   0    20    40    60    80
-```
-
-#### Speed Performance (Lower is Better)
-```
-Technology:  90nm  ████████ (2.05 ns - Slow Corner)
-             180nm █████ (1.339 ns - Typical Corner)
-                   0    0.5   1.0   1.5   2.0   2.5
-```
 
 </div>
 ### ✅ Synthesis & Verification Results (90nm)

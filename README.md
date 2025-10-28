@@ -86,61 +86,27 @@ This associative operator enables parallel prefix computation across all bit pos
 ---
 
 ## 📊 Results
-
-### 🔬 Performance Comparison
-
-<div align="center">
-
-| **Technology Node** | **Area (μm²)** | **Delay (ns)** | **Power (μW)** | **Cell Count** |
-|:-------------------:|:--------------:|:--------------:|:--------------:|:--------------:|
-| **90nm CMOS**       | 176.36         | 2.05           | 21.93          | 30             |
-| **180nm CMOS**      | 652.00         | TBD            | 85.80          | 39             |
-
-</div>
-
----
-
-### ⚡ Post-Layout Metrics (90nm Technology)
-
-<div align="center">
-
-```
-╔════════════════════════════════════════════╗
-║       POST-LAYOUT METRICS - 90nm           ║
-╠════════════════════════════════════════════╣
-║  📏 Die Area       : 791.13 μm²            ║
-║  🎯 Core Area      : 176.36 μm²            ║
-║  📊 Utilization    : ~22.3%                ║
-║  ⚡ Critical Path  : 5.97 ns (post-layout) ║
-║  🔋 Total Power    : 25.08 μW              ║
-║  🔧 Technology     : 90nm CMOS             ║
-╚════════════════════════════════════════════╝
-```
-
-</div>
-
----
-
-### 🔧 Post-Layout Metrics (180nm Technology)
-
-<div align="center">
-
-```
-╔════════════════════════════════════════════╗
-║      POST-LAYOUT METRICS - 180nm           ║
-╠════════════════════════════════════════════╣
-║  📏 Die Area       : 1881.9 μm²            ║
-║  📐 Die Dimensions : 44.22 x 42.56 μm²     ║
-║  🎯 Core Area      : 652.00 μm² (synth)    ║
-║  ⚡ Maximum Delay  : TBD ns (post-layout)  ║
-║  🔋 Total Power    : 85.8 μW               ║
-║  🔧 Technology     : 180nm CMOS            ║
-╚════════════════════════════════════════════╝
-```
-
-</div>
-
----
+🔬 Performance Comparison (Post-Synthesis)<div align="center">Technology NodeArea (μm²)Delay (ns)Power (μW)Cell Count90nm CMOS       176.36         2.05           21.93         30             180nm CMOS     542.203       1.339         62.75         24             </div>⚡ Post-Synthesis Metrics (90nm Technology)<div align="center">╔══════════════════════════════════════════════╗
+║       POST-SYNTHESIS METRICS - 90nm           ║
+╠══════════════════════════════════════════════╣
+║  🎯 Core Area      : 176.36 μm²               ║
+║  ⚡ Critical Path  : 2.05 ns                   ║
+║  🔋 Total Power    : 21.93 μW                  ║
+║  🔢 Cell Count     : 30                        ║
+║  ✅ Timing Slack   : +3950 ps                  ║
+║  🔧 Corner         : Slow                      ║
+╚══════════════════════════════════════════════╝
+</div>🔧 Post-Synthesis Metrics (180nm Technology)<div align="center">╔══════════════════════════════════════════════╗
+║      POST-SYNTHESIS METRICS - 180nm           ║
+╠══════════════════════════════════════════════╣
+║  🎯 Core Area      : 542.203 μm²              ║
+║  ⚡ Critical Path  : 1.339 ns                  ║
+║  🔋 Total Power    : 62.75 μW                  ║
+║  🔢 Cell Count     : 24                        ║
+║  ✅ Timing Slack   : +612.4 ps                 ║
+║  🔧 Corner         : Typical                   ║
+╚══════════════════════════════════════════════╝
+</div>📊 Analysis of Differentiating FactorsThe synthesis results are not a direct "apples-to-apples" comparison due to the significant differences in the environment and constraints for each run. This analysis explains how these settings led to the final outcomes.<div align="center">Factor / Constraint90nm Synthesis Run180nm Synthesis RunProfessional Impact Analysis1. Operating ConditionsSynthesized using the slow library, modeling a worst-case scenario (low voltage, high temp).Synthesized using the typical library, modeling nominal operating conditions.This is the primary reason for the slower delay in the 90nm design. A slow corner uses pessimistic timing values, leading to longer calculated delays. For a true speed comparison, both should use the same corner.2. Timing AggressivenessThe timing constraint was very loose at 8.0 ns. The tool easily met this goal, leaving a huge positive slack of 3.95 ns.The timing constraint was much tighter at 4.0 ns. This forced the tool to optimize heavily for speed, resulting in a much smaller slack.The 180nm synthesis was "timing-driven," prioritizing speed to meet a difficult goal. The 90nm run was not; its goal was so easy that the tool likely optimized for area or power after the loose timing was met.3. Power ProfileTotal power was low at 21.93 µW. Static leakage power accounted for a significant 5.39% of this total.Total power was higher at 62.75 µW. Static leakage power was negligible at only 0.01%.This highlights a key trade-off in smaller nodes. While the 90nm design has lower overall power, its smaller transistors are "leakier," making static power a more relevant part of the budget, especially at the high temperatures of a slow corner.4. Area FootprintThe total cell area was 176.36 µm².The total cell area was 542.203 µm².This clearly shows the main benefit of technology scaling. The 90nm design occupies approximately one-third of the silicon area of the 180nm design, enabling much higher integration density.</div>
 
 ### ✅ Synthesis & Verification Results (90nm)
 

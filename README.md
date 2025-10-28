@@ -232,7 +232,7 @@ This associative operator enables parallel prefix computation across all bit pos
 
 *Optimized layout showing improved density and routing*
 
-![90nm Layout 3D](./images/layout_180_3d.png)
+![90nm Layout 3D](./images/layout_90_3d.png)
 
 *Complete routed layout with 2D and 3D views*
 </div>

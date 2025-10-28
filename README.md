@@ -221,8 +221,6 @@ This associative operator enables parallel prefix computation across all bit pos
 - ✅ **Design Constraints Matter**: Timing goals and PVT corners significantly impact synthesis results; fair comparisons require identical constraints
 - ✅ **Optimization Focus**: Aggressive timing constraints drive performance optimization, while relaxed constraints allow area/power optimization
 
----
-
 </div>
 
 --- 
@@ -254,12 +252,16 @@ This associative operator enables parallel prefix computation across all bit pos
 | **Brent-Kung** | O(log n) | Lower | Lower | Power-constrained systems |
 | **Han-Carlson** | O(log n) | Medium | Medium | Balanced speed/area trade-off |
 
+<div>
+  
 **Why Kogge-Stone?**
 - ✅ Minimum logic depth (fastest)
 - ✅ Regular structure (easier routing)
 - ✅ Parallel carry computation
 - ⚠️ Higher area and wiring complexity
 - ⚠️ More power consumption
+
+</div>
 
 </div>
 

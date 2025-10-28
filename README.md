@@ -224,7 +224,10 @@ This associative operator enables parallel prefix computation across all bit pos
 ---
 
 </div>
-### ✅ Synthesis & Verification Results (90nm)
+
+--- 
+
+✅Synthesis & Verification Results (90nm)
 
 <div align="center">
 

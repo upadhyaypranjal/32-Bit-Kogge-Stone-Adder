@@ -136,6 +136,7 @@ This associative operator enables parallel prefix computation across all bit pos
 │                  GDSII GENERATION                           │
 │              (Ready for Fabrication)                        │
 └─────────────────────────────────────────────────────────────┘
+
 ```
 
 ## 📊 Results

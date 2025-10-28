@@ -169,6 +169,32 @@ This associative operator enables parallel prefix computation across all bit pos
 
 ---
 
+### 📈 Performance Visualization
+
+<div align="center">
+
+#### Area vs Technology Node
+```
+Technology:  180nm ████████████████████ (542.20 μm²)
+             90nm  ███████ (176.36 μm²)
+                   0        200        400        600
+```
+
+#### Power Consumption Comparison
+```
+Technology:  180nm ████████████████████████ (62.75 μW)
+             90nm  ████████ (21.93 μW)
+                   0    20    40    60    80
+```
+
+#### Speed Performance (Lower is Better)
+```
+Technology:  90nm  ████████ (2.05 ns - Slow Corner)
+             180nm █████ (1.339 ns - Typical Corner)
+                   0    0.5   1.0   1.5   2.0   2.5
+```
+
+</div>
 ### ✅ Synthesis & Verification Results (90nm)
 
 <div align="center">

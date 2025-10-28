@@ -272,6 +272,23 @@ This associative operator enables parallel prefix computation across all bit pos
 
 ---
 
+### Sample Test Cases
+```verilog
+// Test Case 1: Basic Addition
+A = 8'b00001111 (15), B = 8'b00010001 (17)
+Expected: SUM = 8'b00100000 (32), OVERFLOW = 0
+Result: ✅ PASS
+
+// Test Case 2: Maximum Values
+A = 8'b11111111 (255), B = 8'b00000001 (1)
+Expected: SUM = 8'b00000000 (0), OVERFLOW = 1
+Result: ✅ PASS
+
+// Test Case 3: Overflow Detection
+A = 8'b10000000 (128), B = 8'b10000000 (128)
+Expected: SUM = 8'b00000000 (0), OVERFLOW = 1
+Result: ✅ PASS
+
 ### Gate-Level Schematic
 
 <div align="center">
@@ -332,23 +349,6 @@ This associative operator enables parallel prefix computation across all bit pos
 | **Total** | **10,406** | **100%** | **✅ PASS** |
 
 </div>
-
-### Sample Test Cases
-```verilog
-// Test Case 1: Basic Addition
-A = 8'b00001111 (15), B = 8'b00010001 (17)
-Expected: SUM = 8'b00100000 (32), OVERFLOW = 0
-Result: ✅ PASS
-
-// Test Case 2: Maximum Values
-A = 8'b11111111 (255), B = 8'b00000001 (1)
-Expected: SUM = 8'b00000000 (0), OVERFLOW = 1
-Result: ✅ PASS
-
-// Test Case 3: Overflow Detection
-A = 8'b10000000 (128), B = 8'b10000000 (128)
-Expected: SUM = 8'b00000000 (0), OVERFLOW = 1
-Result: ✅ PASS
 
 ```
 

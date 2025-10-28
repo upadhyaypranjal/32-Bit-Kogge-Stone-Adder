@@ -239,6 +239,29 @@ This associative operator enables parallel prefix computation across all bit pos
 
 ---
 
+### ⚖️ Adder Architecture Comparison
+
+<div align="center">
+
+| **Architecture** | **Delay** | **Area** | **Power** | **Best Use Case** |
+|:-----------------|:---------:|:--------:|:---------:|:------------------|
+| **Ripple Carry** | O(n) | Minimal | Lowest | Low-speed, area-critical designs |
+| **Carry Look-ahead** | O(log n) | Medium | Medium | Balanced performance |
+| **Kogge-Stone** | **O(log n)** | **High** | **Medium** | **High-speed applications** |
+| **Brent-Kung** | O(log n) | Lower | Lower | Power-constrained systems |
+| **Han-Carlson** | O(log n) | Medium | Medium | Balanced speed/area trade-off |
+
+**Why Kogge-Stone?**
+- ✅ Minimum logic depth (fastest)
+- ✅ Regular structure (easier routing)
+- ✅ Parallel carry computation
+- ⚠️ Higher area and wiring complexity
+- ⚠️ More power consumption
+
+</div>
+
+---
+
 ## 🖼 Visual Gallery
 
 ### RTL Simulation Waveforms

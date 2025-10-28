@@ -294,6 +294,9 @@ This associative operator enables parallel prefix computation across all bit pos
 - **Power-Delay Product (180nm)**: 84.02 fJ
 - **Energy per Operation (90nm)**: 21.93 pJ @ 1 GHz
 - **Energy per Operation (180nm)**: 62.75 pJ @ 1 GHz
+
+--- 
+
 ## 🖼 Visual Gallery
 
 ### RTL Simulation Waveforms
@@ -404,7 +407,6 @@ Result: ✅ PASS
 </div>
 
 ---
-```
 
 ## 🚀 Getting Started
 

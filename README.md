@@ -153,8 +153,6 @@ This associative operator enables parallel prefix computation across all bit pos
 
 </div>
 
----
-
 ### ⚡ Post-Synthesis Metrics - 90nm Technology
 
 <div align="center">
@@ -173,8 +171,6 @@ This associative operator enables parallel prefix computation across all bit pos
 ```
 
 </div>
-
----
 
 ### 🔧 Post-Synthesis Metrics - 180nm Technology
 
@@ -195,8 +191,6 @@ This associative operator enables parallel prefix computation across all bit pos
 
 </div>
 
----
-
 ### 📊 Analysis of Differentiating Factors
 
 > **⚠️ Important Note:** The synthesis results are not a direct "apples-to-apples" comparison due to significant differences in the environment and constraints for each run. This analysis explains how these settings led to the final outcomes.
@@ -212,8 +206,6 @@ This associative operator enables parallel prefix computation across all bit pos
 
 </div>
 
----
-
 ### 🎯 Key Takeaways
 
 - ✅ **Technology Scaling Benefits**: 90nm technology provides ~3× area reduction, enabling higher integration density
@@ -225,7 +217,7 @@ This associative operator enables parallel prefix computation across all bit pos
 
 --- 
 
-✅Synthesis & Verification Results (90nm)
+✅ Synthesis & Verification Results (90nm)
 
 <div align="center">
 
@@ -252,6 +244,8 @@ This associative operator enables parallel prefix computation across all bit pos
 | **Brent-Kung** | O(log n) | Lower | Lower | Power-constrained systems |
 | **Han-Carlson** | O(log n) | Medium | Medium | Balanced speed/area trade-off |
 
+</div>
+
 <div>
   
 **Why Kogge-Stone?**
@@ -260,8 +254,6 @@ This associative operator enables parallel prefix computation across all bit pos
 - ✅ Parallel carry computation
 - ⚠️ Higher area and wiring complexity
 - ⚠️ More power consumption
-
-</div>
 
 </div>
 

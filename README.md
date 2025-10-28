@@ -517,6 +517,81 @@ Result: ✅ PASS
 
 ---
 
+## ❓ Frequently Asked Questions
+
+<details>
+<summary><b>Q: Why is the 180nm design faster despite being an older technology?</b></summary>
+
+A: The 180nm design appears faster due to different synthesis constraints:
+- It uses **typical** corner (vs. **slow** for 90nm)
+- It has **tighter timing constraint** (4ns vs. 8ns)
+- True comparison requires identical PVT corners
+</details>
+
+<details>
+<summary><b>Q: Can this design be scaled to 16-bit or 32-bit?</b></summary>
+
+A: Yes! The design is parameterized with a `PRECISION` parameter. Simply change:
+```verilog
+parameter PRECISION = 16;  // for 16-bit
+parameter PRECISION = 32;  // for 32-bit
+```
+The prefix stages will automatically adjust to log₂(n).
+</details>
+
+<details>
+<summary><b>Q: What is the maximum operating frequency?</b></summary>
+
+A: Based on post-synthesis results:
+- **90nm (slow corner)**: ~487 MHz (2.05ns critical path)
+- **180nm (typical corner)**: ~747 MHz (1.339ns critical path)
+- Actual frequency depends on PVT corner and routing parasitics
+</details>
+
+<details>
+<summary><b>Q: How does Kogge-Stone compare to Carry Look-ahead Adder?</b></summary>
+
+A: 
+- **Kogge-Stone**: Faster (minimum depth), but more area/power
+- **CLA**: Slower than Kogge-Stone, but less area
+- **Use Kogge-Stone** when speed is critical
+- **Use CLA** for balanced performance
+</details>
+
+<details>
+<summary><b>Q: Is this design fabrication-ready?</b></summary>
+
+A: Yes! The design has:
+- ✅ DRC clean layout
+- ✅ LVS verified
+- ✅ Timing closure
+- ✅ GDSII generated
+
+Ready for tapeout with appropriate foundry PDK.
+</details>
+
+---
+
+## 🚀 Future Enhancements
+
+### Planned Improvements
+
+- [ ] **16-bit & 32-bit Variants**: Extend design to wider operands
+- [ ] **FinFET Technology**: Implementation in 7nm/5nm nodes
+- [ ] **Low-Power Modes**: Add clock gating and power domains
+- [ ] **Pipeline Stages**: Add registers for higher throughput
+- [ ] **Formal Verification**: Property checking using formal tools
+- [ ] **Multi-Vt Optimization**: Use multiple threshold voltages
+- [ ] **Temperature Sensing**: Add on-chip temperature monitors
+- [ ] **BIST Integration**: Built-in self-test circuitry
+
+### Research Opportunities
+
+- 🔬 Comparison with quantum-dot cellular automata (QCA) implementation
+- 🔬 Analysis of radiation hardening for space applications
+- 🔬 Machine learning-based optimization of prefix tree structure
+- 🔬 3D IC implementation with through-silicon vias (TSVs)
+
 ## 🤝 Contributing
 
 Contributions are welcome! If you'd like to improve this project:

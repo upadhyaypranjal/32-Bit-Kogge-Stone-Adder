@@ -71,7 +71,7 @@ The Kogge-Stone Adder operates in three distinct stages:
          └─────────────────┘
 ```
 
-![Simulation Waveforms](./images/arch.png)
+![Kogge-Stone Adder Architecture](https://raw.githubusercontent.com/upadhyaypranjal/8-Bit-Kogge-Stone-Adder/main/images/arch.png)
 
 ### Prefix Operator
 
@@ -320,7 +320,7 @@ This associative operator enables parallel prefix computation across all bit pos
 
 ### RTL Simulation Waveforms
 
-![Simulation Waveforms](./images/waveforms.png)
+![Simulation Waveforms](https://raw.githubusercontent.com/upadhyaypranjal/8-Bit-Kogge-Stone-Adder/main/images/waveforms.png)
 
 *Functional verification showing correct addition and overflow detection.*
 
@@ -386,7 +386,11 @@ Result: ✅ PASS
 
 <div align="center">
 
-**180nm Technology** | **90nm Technology**
+#### 180nm Technology
+![180nm Gate-Level Schematic](https://raw.githubusercontent.com/upadhyaypranjal/8-Bit-Kogge-Stone-Adder/main/images/schematic_180nm.png)
+
+#### 90nm Technology
+![90nm Gate-Level Schematic](https://raw.githubusercontent.com/upadhyaypranjal/8-Bit-Kogge-Stone-Adder/main/images/schematic_90nm.png)
 
 *Synthesized gate-level implementations for both technology nodes.*
 
@@ -400,6 +404,12 @@ Result: ✅ PASS
 
 <div align="center">
 
+**2D Layout View**
+![180nm Layout 2D](https://raw.githubusercontent.com/upadhyaypranjal/8-Bit-Kogge-Stone-Adder/main/images/layout_180nm_2d.png)
+
+**3D Layout View**
+![180nm Layout 3D](https://raw.githubusercontent.com/upadhyaypranjal/8-Bit-Kogge-Stone-Adder/main/images/layout_180nm_3d.png)
+
 *Complete routed layout with 2D and 3D views.*
 
 </div>
@@ -407,6 +417,9 @@ Result: ✅ PASS
 #### 90nm Implementation
 
 <div align="center">
+
+**2D Layout View**
+![90nm Layout 2D](https://raw.githubusercontent.com/upadhyaypranjal/8-Bit-Kogge-Stone-Adder/main/images/layout_90nm_2d.png)
 
 *Optimized layout showing improved density and routing.*
 

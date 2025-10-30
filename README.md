@@ -140,56 +140,25 @@ This associative operator enables parallel prefix computation across all bit pos
 ```
 
 ## 📊 Results
-## 🔬 Performance Comparison (Post-Synthesis)
+## 🔬 Performance Comparison (Pre-Layout Synthesis)
 
 ### Overall Performance Summary
 
 <div align="center">
 
-| **Technology Node** | **Area (μm²)** | **Delay (ns)** | **Power (μW)** | **Cell Count** |
-|:-------------------:|:--------------:|:--------------:|:--------------:|:--------------:|
-| **90nm CMOS**       | 791.13         | 3.950          | 2.05           | 30             |
-| **180nm CMOS**      | 542.203        | 1.339          | 5.97          | 32             |
+| **Technology Node** | **Area (μm²)** | **Critical Path Delay (ns)** | **Worst Slack (ns)** | **Total Power (μW)** | **Cell Count** |
+|:-------------------:|:--------------:|:-----------------------------:|:--------------------:|:--------------------:|:--------------:|
+| **90 nm CMOS**       | 176.358        | 2.05                          | 3.95                 | 21.93                | 30             |
+| **180 nm CMOS**      | 612.058        | 2.586                         | 3.414                | 114.666              | 32             |
 
 </div>
 
-### ⚡ Post-Synthesis Metrics - 90nm Technology
+---
+
+### ⚡ Pre-Layout Synthesis Metrics — 90 nm Technology
 
 <div align="center">
 
-```
-╔══════════════════════════════════════════════╗
-║       POST-SYNTHESIS METRICS - 90nm           ║
-╠══════════════════════════════════════════════╣
-║  🎯 Core Area      : 176.36 μm²               ║
-║  ⚡ Critical Path  : 2.05 ns                   ║
-║  🔋 Total Power    : 21.93 μW                  ║
-║  🔢 Cell Count     : 30                        ║
-║  ✅ Timing Slack   : +3950 ps                  ║
-║  🔧 Corner         : Slow                      ║
-╚══════════════════════════════════════════════╝
-```
-
-</div>
-
-### 🔧 Post-Synthesis Metrics - 180nm Technology
-
-<div align="center">
-
-```
-╔══════════════════════════════════════════════╗
-║      POST-SYNTHESIS METRICS - 180nm           ║
-╠══════════════════════════════════════════════╣
-║  🎯 Core Area      : 542.203 μm²              ║
-║  ⚡ Critical Path  : 1.339 ns                  ║
-║  🔋 Total Power    : 62.75 μW                  ║
-║  🔢 Cell Count     : 24                        ║
-║  ✅ Timing Slack   : +612.4 ps                 ║
-║  🔧 Corner         : Typical                   ║
-╚══════════════════════════════════════════════╝
-```
-
-</div>
 
 ### 📊 Analysis of Differentiating Factors
 

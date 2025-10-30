@@ -199,40 +199,59 @@ This associative operator enables parallel prefix computation across all bit pos
 
 ### 📊 Analysis of Differentiating Factors
 
-> **⚠️ Important Note:** The synthesis results are not a direct "apples-to-apples" comparison due to significant differences in the environment and constraints for each run. This analysis explains how these settings led to the final outcomes.
+> **⚠️ Important Note:**  
+> The **pre-layout synthesis results** presented here are not a direct “apples-to-apples” comparison due to variations in libraries, corners, and synthesis constraints.  
+> The following analysis explains how these factors influenced the final performance, area, and power metrics.
 
 <div align="center">
 
 | **Factor / Constraint** | **90nm Synthesis Run** | **180nm Synthesis Run** | **Professional Impact Analysis** |
 |:------------------------|:-----------------------|:------------------------|:---------------------------------|
-| **1. Operating Conditions** | Synthesized using the **`slow`** library, modeling a worst-case scenario (low voltage, high temp). | Synthesized using the **`typical`** library, modeling nominal operating conditions. | This is the **primary reason** for the slower delay in the 90nm design. A `slow` corner uses pessimistic timing values, leading to longer calculated delays. For a true speed comparison, both should use the same corner. |
-| **2. Timing Aggressiveness** | The timing constraint was very loose at **8.0 ns**. The tool easily met this goal, leaving a huge positive slack of **3.95 ns**. | The timing constraint was much tighter at **4.0 ns**. This forced the tool to optimize heavily for speed, resulting in a much smaller slack. | The 180nm synthesis was **"timing-driven"**, prioritizing speed to meet a difficult goal. The 90nm run was not; its goal was so easy that the tool likely optimized for area or power after the loose timing was met. |
-| **3. Power Profile** | Total power was low at **21.93 μW**. Static leakage power accounted for a significant **5.39%** of this total. | Total power was higher at **62.75 μW**. Static leakage power was negligible at only **0.01%**. | This highlights a key trade-off in smaller nodes. While the 90nm design has lower overall power, its smaller transistors are **"leakier"**, making static power a more relevant part of the budget, especially at the high temperatures of a `slow` corner. |
-| **4. Area Footprint** | The total cell area was **176.36 μm²**. | The total cell area was **542.203 μm²**. | This clearly shows the main benefit of **technology scaling**. The 90nm design occupies approximately **one-third** of the silicon area of the 180nm design, enabling much higher integration density. |
+| **1. Operating Conditions** | Synthesized using the **`typical`** corner, representing nominal voltage and temperature. | Synthesized using the **`typical`** corner as well. | Both runs use comparable operating corners, ensuring a fair baseline comparison of technology scaling rather than environmental variation. |
+| **2. Timing Slack** | Achieved a **positive slack of 3.95 ns**, indicating that timing closure was comfortably achieved. | Achieved a **positive slack of 3.414 ns**, showing that the design meets timing but with tighter margins. | The 90 nm implementation shows better timing margin due to smaller gate delays and faster transistor switching at reduced feature sizes. |
+| **3. Power Profile** | Total power: **21.93 µW**, with **20.74 µW dynamic** and **1.18 µW leakage**. | Total power: **114.666 µW**, with **82.596 µW dynamic** and **32.07 µW leakage**. | The 90 nm node offers nearly **5× lower total power** due to reduced capacitance and supply voltage, though leakage becomes a growing concern as dimensions shrink. |
+| **4. Area Footprint** | Total area: **176.358 µm²**. | Total area: **612.058 µm²**. | A clear demonstration of **technology scaling**—the 90 nm design achieves a **~3.5× reduction in silicon area**, enabling denser and more cost-efficient integration. |
+| **5. Cell Composition** | **30 total cells** (24 logical, 6 inverter). | **32 total cells** (25 logical, 7 inverter). | Both implementations maintain similar logic composition, showing that the performance differences arise primarily from transistor-level scaling rather than architectural differences. |
 
 </div>
+
+---
 
 ### 🎯 Key Takeaways
 
-- ✅ **Technology Scaling Benefits**: 90nm technology provides ~3× area reduction, enabling higher integration density
-- ✅ **Power Trade-offs**: Smaller nodes offer lower dynamic power but increased leakage, requiring careful power management strategies
-- ✅ **Design Constraints Matter**: Timing goals and PVT corners significantly impact synthesis results; fair comparisons require identical constraints
-- ✅ **Optimization Focus**: Aggressive timing constraints drive performance optimization, while relaxed constraints allow area/power optimization
+- ✅ **Technology Scaling Advantage** – The 90 nm process achieves **smaller area, higher performance, and lower power** than 180 nm.  
+- ✅ **Timing Efficiency** – Both designs achieve strong positive slack, but the 90 nm version demonstrates faster gate delays and superior switching characteristics.  
+- ✅ **Power Efficiency** – While dynamic power drops significantly at 90 nm, **leakage power becomes non-negligible**, requiring advanced low-power design strategies.  
+- ✅ **Density Gains** – The area reduction of nearly **70%** between 180 nm and 90 nm nodes underscores the benefit of modern CMOS scaling.  
+- ✅ **Design Scalability** – Minimal logical restructuring is required when migrating the Kogge–Stone Adder from 180 nm to 90 nm, confirming that the architecture scales efficiently across nodes.
 
-</div>
+---
 
---- 
-
-✅ Synthesis & Verification Results (90nm)
+### ✅ Synthesis & Verification Results (90 nm)
 
 <div align="center">
 
 | **Metric** | **Status** | **Description** |
 |:-----------|:----------:|:----------------|
-| **Timing** | ✅ Clean | All paths meet timing constraints |
-| **DRC** | ✅ Clean | Zero design rule violations |
-| **LVS** | ✅ Clean | Layout matches schematic perfectly |
-| **Power** | ✅ Optimized | Low leakage with efficient switching |
+| **Timing** | ✅ Clean | All paths meet timing constraints with +3.95 ns slack |
+| **DRC** | ✅ Clean | No design rule violations observed |
+| **LVS** | ✅ Clean | Layout matches schematic accurately |
+| **Power** | ✅ Optimized | Dynamic and leakage power well balanced |
+
+</div>
+
+---
+
+### ✅ Synthesis & Verification Results (180 nm)
+
+<div align="center">
+
+| **Metric** | **Status** | **Description** |
+|:-----------|:----------:|:----------------|
+| **Timing** | ✅ Clean | Meets timing constraints with +3.414 ns slack |
+| **DRC** | ✅ Clean | No design rule violations reported |
+| **LVS** | ✅ Clean | Layout-to-schematic verification successful |
+| **Power** | ⚡ Moderate | Higher dynamic and leakage due to larger geometry |
 
 </div>
 
@@ -244,13 +263,14 @@ This associative operator enables parallel prefix computation across all bit pos
 
 | **Architecture** | **Delay** | **Area** | **Power** | **Best Use Case** |
 |:-----------------|:---------:|:--------:|:---------:|:------------------|
-| **Ripple Carry** | O(n) | Minimal | Lowest | Low-speed, area-critical designs |
-| **Carry Look-ahead** | O(log n) | Medium | Medium | Balanced performance |
-| **Kogge-Stone** | **O(log n)** | **High** | **Medium** | **High-speed applications** |
-| **Brent-Kung** | O(log n) | Lower | Lower | Power-constrained systems |
-| **Han-Carlson** | O(log n) | Medium | Medium | Balanced speed/area trade-off |
+| **Ripple Carry** | O(n) | Minimal | Lowest | Low-speed, area-constrained designs |
+| **Carry Look-ahead** | O(log n) | Medium | Medium | Balanced speed and complexity |
+| **Kogge–Stone (This Work)** | **O(log n)** | **High** | **Medium** | **High-speed arithmetic operations** |
+| **Brent–Kung** | O(log n) | Lower | Lower | Power-efficient applications |
+| **Han–Carlson** | O(log n) | Medium | Medium | Balanced performance–power trade-off |
 
 </div>
+
 
 <div>
   

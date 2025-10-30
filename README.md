@@ -148,8 +148,8 @@ This associative operator enables parallel prefix computation across all bit pos
 
 | **Technology Node** | **Area (μm²)** | **Delay (ns)** | **Power (μW)** | **Cell Count** |
 |:-------------------:|:--------------:|:--------------:|:--------------:|:--------------:|
-| **90nm CMOS**       | 176.36         | 2.05           | 21.93          | 30             |
-| **180nm CMOS**      | 542.203        | 1.339          | 62.75          | 24             |
+| **90nm CMOS**       | 3414           | 2.05           | 21.93          | 30             |
+| **180nm CMOS**      | 3950           | 1.339          | 62.75          | 24             |
 
 </div>
 
@@ -157,18 +157,19 @@ This associative operator enables parallel prefix computation across all bit pos
 
 <div align="center">
 
-```
 ╔══════════════════════════════════════════════╗
-║       POST-SYNTHESIS METRICS - 90nm           ║
+║ POST-SYNTHESIS METRICS - 90nm ║
 ╠══════════════════════════════════════════════╣
-║  🎯 Core Area      : 176.36 μm²               ║
-║  ⚡ Critical Path  : 2.05 ns                   ║
-║  🔋 Total Power    : 21.93 μW                  ║
-║  🔢 Cell Count     : 30                        ║
-║  ✅ Timing Slack   : +3950 ps                  ║
-║  🔧 Corner         : Slow                      ║
+║ 🎯 Core Area : 3414 μm² ║
+║ ⚡ Critical Path : 2.05 ns ║
+║ 🔋 Total Power : 21.93 μW ║
+║ 🔢 Cell Count : 30 ║
+║ ✅ Timing Slack : +3950 ps ║
+║ 🔧 Corner : Slow ║
 ╚══════════════════════════════════════════════╝
-```
+
+bash
+Copy code
 
 </div>
 
@@ -176,21 +177,21 @@ This associative operator enables parallel prefix computation across all bit pos
 
 <div align="center">
 
-```
 ╔══════════════════════════════════════════════╗
-║      POST-SYNTHESIS METRICS - 180nm           ║
+║ POST-SYNTHESIS METRICS - 180nm ║
 ╠══════════════════════════════════════════════╣
-║  🎯 Core Area      : 542.203 μm²              ║
-║  ⚡ Critical Path  : 1.339 ns                  ║
-║  🔋 Total Power    : 62.75 μW                  ║
-║  🔢 Cell Count     : 24                        ║
-║  ✅ Timing Slack   : +612.4 ps                 ║
-║  🔧 Corner         : Typical                   ║
+║ 🎯 Core Area : 3950 μm² ║
+║ ⚡ Critical Path : 1.339 ns ║
+║ 🔋 Total Power : 62.75 μW ║
+║ 🔢 Cell Count : 24 ║
+║ ✅ Timing Slack : +612.4 ps ║
+║ 🔧 Corner : Typical ║
 ╚══════════════════════════════════════════════╝
-```
+
+bash
+Copy code
 
 </div>
-
 ### 📊 Analysis of Differentiating Factors
 
 > **⚠️ Important Note:** The synthesis results are not a direct "apples-to-apples" comparison due to significant differences in the environment and constraints for each run. This analysis explains how these settings led to the final outcomes.

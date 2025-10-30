@@ -405,12 +405,16 @@ Result: ✅ PASS
 <div align="center">
 
 **2D Layout View**
+
 ![180nm Layout 2D](./images/layout_180.png)
 
+*180nm technology - 2D layout view showing complete routed design*
+
 **3D Layout View**
+
 ![180nm Layout 3D](./images/layout_180_3d.png)
 
-*Complete routed layout with 2D and 3D views.*
+*180nm technology - 3D perspective view of the physical implementation*
 
 </div>
 
@@ -419,15 +423,18 @@ Result: ✅ PASS
 <div align="center">
 
 **2D Layout View**
+
 ![90nm Layout 2D](./images/layout_90.png)
 
+*90nm technology - 2D layout view showing optimized density and routing*
+
 **3D Layout View**
+
 ![90nm Layout 3D](./images/lay_90_3d.png)
 
-*Optimized layout showing improved density and routing.*
+*90nm technology - 3D perspective view demonstrating improved layout efficiency*
 
 </div>
-
 ---
 
 ## 🚀 Getting Started

@@ -386,9 +386,7 @@ Result: ✅ PASS
 
 <div align="center">
 
-| 180nm Technology | 90nm Technology |
-|:----------------:|:---------------:|
-| ![180nm Schematic](./images/schematic_180nm.png) | ![90nm Schematic](./images/schematic_90nm.png) |
+**180nm Technology** | **90nm Technology**
 
 *Synthesized gate-level implementations for both technology nodes.*
 
@@ -402,9 +400,6 @@ Result: ✅ PASS
 
 <div align="center">
 
-![180nm Layout 2D](./images/layout_180nm_2d.png)
-![180nm Layout 3D](./images/layout_180nm_3d.png)
-
 *Complete routed layout with 2D and 3D views.*
 
 </div>
@@ -412,9 +407,6 @@ Result: ✅ PASS
 #### 90nm Implementation
 
 <div align="center">
-
-![90nm Layout 2D](./images/layout_90nm_2d.png)
-![90nm Layout 3D](./images/layout_90nm_3d.png)
 
 *Optimized layout showing improved density and routing.*
 

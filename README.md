@@ -142,14 +142,14 @@ This associative operator enables parallel prefix computation across all bit pos
 ## 📊 Results
 ## 🔬 Performance Comparison (Pre-Layout Synthesis)
 
-### Overall Performance Summary
+### 🧩 Overall Performance Summary
 
 <div align="center">
 
-| **Technology Node** | **Area (μm²)** | **Critical Path Delay (ns)** | **Worst Slack (ns)** | **Total Power (μW)** | **Cell Count** |
-|:-------------------:|:--------------:|:-----------------------------:|:--------------------:|:--------------------:|:--------------:|
-| **90 nm CMOS**       | 176.358        | 2.05                          | 3.95                 | 21.93                | 30             |
-| **180 nm CMOS**      | 612.058        | 2.586                         | 3.414                | 114.666              | 32             |
+| **Technology Node** | **Total Area (μm²)** | **Critical Path Delay (ns)** | **Worst Slack (ns)** | **Total Power (μW)** | **Cell Count** |
+|:-------------------:|:--------------------:|:-----------------------------:|:--------------------:|:--------------------:|:--------------:|
+| **90 nm CMOS**      | 176.358              | 2.05                          | 3.95                 | 21.93                | 30             |
+| **180 nm CMOS**     | 612.058              | 2.586                         | 3.414                | 114.666              | 32             |
 
 </div>
 
@@ -159,23 +159,18 @@ This associative operator enables parallel prefix computation across all bit pos
 
 <div align="center">
 
-╔══════════════════════════════════════════════╗
-║ PRE-LAYOUT SYNTHESIS METRICS - 90nm ║
-╠══════════════════════════════════════════════╣
-║ 🎯 Total Area : 176.358 μm² ║
-║ ⚡ Critical Path : 2.05 ns ║
-║ ⏱️ Worst Slack : 3.95 ns ║
-║ 🔋 Total Power : 21.93 μW ║
-║ 🔌 Dynamic Power : 20.74 μW ║
-║ 💤 Leakage Power : 1.18 μW ║
-║ 🔢 Total Cells : 30 ║
-║ ┗ Logical Cells : 24 ║
-║ ┗ Inverter Cells : 6 ║
-║ 🔧 Corner : Typical ║
-╚══════════════════════════════════════════════╝
-
-yaml
-Copy code
+| **Parameter**         | **Value**   | **Unit**  |
+|:----------------------|:-----------:|:----------:|
+| **Total Area**        | 176.358     | μm²        |
+| **Critical Path Delay** | 2.05       | ns         |
+| **Worst Slack**       | 3.95        | ns         |
+| **Total Power**       | 21.93       | μW         |
+| ┗ **Dynamic Power**   | 20.74       | μW         |
+| ┗ **Leakage Power**   | 1.18        | μW         |
+| **Total Cell Count**  | 30          | —          |
+| ┗ **Logical Cells**   | 24          | —          |
+| ┗ **Inverter Cells**  | 6           | —          |
+| **Corner**            | Typical     | —          |
 
 </div>
 
@@ -185,25 +180,21 @@ Copy code
 
 <div align="center">
 
-╔══════════════════════════════════════════════╗
-║ PRE-LAYOUT SYNTHESIS METRICS - 180nm ║
-╠══════════════════════════════════════════════╣
-║ 🎯 Total Area : 612.058 μm² ║
-║ ⚡ Critical Path : 2.586 ns ║
-║ ⏱️ Worst Slack : 3.414 ns ║
-║ 🔋 Total Power : 114.666 μW ║
-║ 🔌 Dynamic Power : 82.596 μW ║
-║ 💤 Leakage Power : 32.07 μW ║
-║ 🔢 Total Cells : 32 ║
-║ ┗ Logical Cells : 25 ║
-║ ┗ Inverter Cells : 7 ║
-║ 🔧 Corner : Typical ║
-╚══════════════════════════════════════════════╝
-
-bash
-Copy code
+| **Parameter**         | **Value**   | **Unit**  |
+|:----------------------|:-----------:|:----------:|
+| **Total Area**        | 612.058     | μm²        |
+| **Critical Path Delay** | 2.586      | ns         |
+| **Worst Slack**       | 3.414       | ns         |
+| **Total Power**       | 114.666     | μW         |
+| ┗ **Dynamic Power**   | 82.596      | μW         |
+| ┗ **Leakage Power**   | 32.07       | μW         |
+| **Total Cell Count**  | 32          | —          |
+| ┗ **Logical Cells**   | 25          | —          |
+| ┗ **Inverter Cells**  | 7           | —          |
+| **Corner**            | Typical     | —          |
 
 </div>
+
 
 
 ### 📊 Analysis of Differentiating Factors

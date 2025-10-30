@@ -71,7 +71,7 @@ The Kogge-Stone Adder operates in three distinct stages:
          └─────────────────┘
 ```
 
-![Kogge-Stone Adder Architecture](https://raw.githubusercontent.com/upadhyaypranjal/8-Bit-Kogge-Stone-Adder/main/images/arch.png)
+![Kogge-Stone Adder Architecture](./images/arch.png)
 
 ### Prefix Operator
 
@@ -320,7 +320,7 @@ This associative operator enables parallel prefix computation across all bit pos
 
 ### RTL Simulation Waveforms
 
-![Simulation Waveforms](https://raw.githubusercontent.com/upadhyaypranjal/8-Bit-Kogge-Stone-Adder/main/images/waveforms.png)
+![Simulation Waveforms](./images/waveforms.png)
 
 *Functional verification showing correct addition and overflow detection.*
 
@@ -387,10 +387,10 @@ Result: ✅ PASS
 <div align="center">
 
 #### 180nm Technology
-![180nm Gate-Level Schematic](https://raw.githubusercontent.com/upadhyaypranjal/8-Bit-Kogge-Stone-Adder/main/images/schematic_180nm.png)
+![180nm Gate-Level Schematic](./images/genus_schematic.png)
 
 #### 90nm Technology
-![90nm Gate-Level Schematic](https://raw.githubusercontent.com/upadhyaypranjal/8-Bit-Kogge-Stone-Adder/main/images/schematic_90nm.png)
+![90nm Gate-Level Schematic](./images/genus_schematic_90.png)
 
 *Synthesized gate-level implementations for both technology nodes.*
 
@@ -405,10 +405,10 @@ Result: ✅ PASS
 <div align="center">
 
 **2D Layout View**
-![180nm Layout 2D](https://raw.githubusercontent.com/upadhyaypranjal/8-Bit-Kogge-Stone-Adder/main/images/layout_180nm_2d.png)
+![180nm Layout 2D](./images/layout_180.png)
 
 **3D Layout View**
-![180nm Layout 3D](https://raw.githubusercontent.com/upadhyaypranjal/8-Bit-Kogge-Stone-Adder/main/images/layout_180nm_3d.png)
+![180nm Layout 3D](./images/layout_180_3d.png)
 
 *Complete routed layout with 2D and 3D views.*
 
@@ -419,7 +419,10 @@ Result: ✅ PASS
 <div align="center">
 
 **2D Layout View**
-![90nm Layout 2D](https://raw.githubusercontent.com/upadhyaypranjal/8-Bit-Kogge-Stone-Adder/main/images/layout_90nm_2d.png)
+![90nm Layout 2D](./images/layout_90.png)
+
+**3D Layout View**
+![90nm Layout 3D](./images/lay_90_3d.png)
 
 *Optimized layout showing improved density and routing.*
 

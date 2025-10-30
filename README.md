@@ -86,6 +86,7 @@ This associative operator enables parallel prefix computation across all bit pos
 ---
 
 ## 🔄 Complete ASIC Design Flow
+
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                    SPECIFICATION                             │
@@ -136,11 +137,11 @@ This associative operator enables parallel prefix computation across all bit pos
 │                  GDSII GENERATION                           │
 │              (Ready for Fabrication)                        │
 └─────────────────────────────────────────────────────────────┘
-
 ```
 
+---
+
 ## 📊 Results
-## 🔬 Performance Comparison (Pre-Layout Synthesis)
 
 ### 🧩 Overall Performance Summary
 
@@ -195,12 +196,12 @@ This associative operator enables parallel prefix computation across all bit pos
 
 </div>
 
-
+---
 
 ### 📊 Analysis of Differentiating Factors
 
 > **⚠️ Important Note:**  
-> The **pre-layout synthesis results** presented here are not a direct “apples-to-apples” comparison due to variations in libraries, corners, and synthesis constraints.  
+> The **pre-layout synthesis results** presented here are not a direct "apples-to-apples" comparison due to variations in libraries, corners, and synthesis constraints.  
 > The following analysis explains how these factors influenced the final performance, area, and power metrics.
 
 <div align="center">
@@ -271,17 +272,12 @@ This associative operator enables parallel prefix computation across all bit pos
 
 </div>
 
-
-<div>
-  
 **Why Kogge-Stone?**
 - ✅ Minimum logic depth (fastest)
 - ✅ Regular structure (easier routing)
 - ✅ Parallel carry computation
 - ⚠️ Higher area and wiring complexity
 - ⚠️ More power consumption
-
-</div>
 
 ---
 
@@ -313,12 +309,12 @@ This associative operator enables parallel prefix computation across all bit pos
 
 #### Power Efficiency Metrics
 
-- **Power-Delay Product (90nm)**: 44.93 fJ
-- **Power-Delay Product (180nm)**: 84.02 fJ
-- **Energy per Operation (90nm)**: 21.93 pJ @ 1 GHz
-- **Energy per Operation (180nm)**: 62.75 pJ @ 1 GHz
+- **Power-Delay Product (90nm)**: 44.93 fJ  
+- **Power-Delay Product (180nm)**: 84.02 fJ  
+- **Energy per Operation (90nm)**: 21.93 pJ @ 1 GHz  
+- **Energy per Operation (180nm)**: 62.75 pJ @ 1 GHz  
 
---- 
+---
 
 ## 🖼 Visual Gallery
 
@@ -326,7 +322,7 @@ This associative operator enables parallel prefix computation across all bit pos
 
 ![Simulation Waveforms](./images/waveforms.png)
 
-*Functional verification showing correct addition and overflow detection*
+*Functional verification showing correct addition and overflow detection.*
 
 ---
 
@@ -349,25 +345,26 @@ This associative operator enables parallel prefix computation across all bit pos
 </div>
 
 #### Setup/Hold Timing Summary
-```
-Timing Corner: slow (SS, 125°C, 0.9V)
-Clock Period: 8.0 ns (125 MHz target)
 
-Setup Checks:
-  WNS (Worst Negative Slack): 0 ps ✅
-  TNS (Total Negative Slack): 0 ps ✅
-  
-Hold Checks:
-  WNS: 0 ps ✅
-  TNS: 0 ps ✅
+**Timing Corner**: slow (SS, 125°C, 0.9V)  
+**Clock Period**: 8.0 ns (125 MHz target)
 
-Maximum Operating Frequency: 487 MHz (at slow corner)
-```
+**Setup Checks:**
+- WNS (Worst Negative Slack): 0 ps ✅
+- TNS (Total Negative Slack): 0 ps ✅
+
+**Hold Checks:**
+- WNS: 0 ps ✅
+- TNS: 0 ps ✅
+
+**Maximum Operating Frequency**: 487 MHz (at slow corner)
+
+---
 
 ## 🧪 Simulation & Test Results
 
-```
 ### Sample Test Cases
+
 ```verilog
 // Test Case 1: Basic Addition
 A = 8'b00001111 (15), B = 8'b00010001 (17)
@@ -384,17 +381,16 @@ A = 8'b10000000 (128), B = 8'b10000000 (128)
 Expected: SUM = 8'b00000000 (0), OVERFLOW = 1
 Result: ✅ PASS
 ```
----
 
 ### Gate-Level Schematic
 
 <div align="center">
 
-| **180nm Technology** | **90nm Technology** |
-|:--------------------:|:-------------------:|
-| ![180nm Schematic](./images/genus_schematic.png) | ![90nm Schematic](./images/genus_schematic_90.png) |
+| 180nm Technology | 90nm Technology |
+|:----------------:|:---------------:|
+| ![180nm Schematic](./images/schematic_180nm.png) | ![90nm Schematic](./images/schematic_90nm.png) |
 
-*Synthesized gate-level implementations for both technology nodes*
+*Synthesized gate-level implementations for both technology nodes.*
 
 </div>
 
@@ -406,27 +402,22 @@ Result: ✅ PASS
 
 <div align="center">
 
-![180nm Layout](./images/layout_180.png)
+![180nm Layout 2D](./images/layout_180nm_2d.png)
+![180nm Layout 3D](./images/layout_180nm_3d.png)
 
-![180nm Layout 3D](./images/layout_180_3d.png)
-
-*Complete routed layout with 2D and 3D views*
+*Complete routed layout with 2D and 3D views.*
 
 </div>
-
----
 
 #### 90nm Implementation
 
 <div align="center">
 
-![90nm Layout](./images/layout_90.png)
+![90nm Layout 2D](./images/layout_90nm_2d.png)
+![90nm Layout 3D](./images/layout_90nm_3d.png)
 
-*Optimized layout showing improved density and routing*
+*Optimized layout showing improved density and routing.*
 
-![90nm Layout 3D](./images/lay_90_3d.png)
-
-*Complete routed layout with 2D and 3D views*
 </div>
 
 ---
@@ -445,30 +436,33 @@ Result: ✅ PASS
 
 ### Quick Start
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/upadhyaypranjal/8-Bit-Kogge-Stone-Adder.git
-   cd 8-Bit-Kogge-Stone-Adder
-   ```
+**1. Clone the repository**
 
-2. **Run RTL Simulation**
-   ```bash
-   cd rtl
-   # Open Vivado and source the simulation script
-   vivado -mode batch -source sim_kogge_stone.tcl
-   ```
+```bash
+git clone https://github.com/upadhyaypranjal/8-Bit-Kogge-Stone-Adder.git
+cd 8-Bit-Kogge-Stone-Adder
+```
 
-3. **Synthesize the Design**
-   ```bash
-   cd synthesis
-   genus -f run_synthesis.tcl
-   ```
+**2. Run RTL Simulation**
 
-4. **Run Place & Route**
-   ```bash
-   cd pnr
-   innovus -init run_innovus.tcl
-   ```
+```bash
+cd rtl
+vivado -mode batch -source sim_kogge_stone.tcl
+```
+
+**3. Synthesize the Design**
+
+```bash
+cd synthesis
+genus -f run_synthesis.tcl
+```
+
+**4. Run Place & Route**
+
+```bash
+cd pnr
+innovus -init run_innovus.tcl
+```
 
 ---
 
@@ -476,10 +470,10 @@ Result: ✅ PASS
 
 ### RTL Features
 
-- **Parameterized Design**: Configurable PRECISION parameter for any bit-width
-- **Automatic Stage Calculation**: Uses clog2 function to compute prefix stages
-- **Overflow Detection**: Dedicated overflow flag for arithmetic operations
-- **Fully Synthesizable**: Clean RTL without simulation-only constructs
+- **Parameterized Design**: Configurable PRECISION for any bit-width
+- **Automatic Stage Calculation**: Uses clog2 to compute prefix stages
+- **Overflow Detection**: Dedicated overflow flag
+- **Fully Synthesizable**: Clean RTL, no simulation-only constructs
 
 ### Design Metrics
 
@@ -488,9 +482,9 @@ Result: ✅ PASS
 | **Parameter** | **Value** | **Description** |
 |:--------------|:---------:|:----------------|
 | Bit Width | 8 | Default precision (configurable) |
-| Prefix Stages | 3 | log₂(8) stages for 8-bit operation |
+| Prefix Stages | 3 | log₂(8) stages |
 | Logic Depth | O(log₂n) | Theoretical delay complexity |
-| Fan-out | Bounded | Consistent across all stages |
+| Fan-out | Bounded | Consistent across stages |
 | Wiring Complexity | High | Dense interconnect network |
 
 </div>
@@ -507,22 +501,20 @@ Result: ✅ PASS
 
 ### Learning Outcomes
 
-✓ Complete ASIC design flow from specification to layout  
-✓ RTL coding and functional verification using Verilog  
-✓ Logic synthesis and technology mapping  
-✓ Physical design including floorplanning and routing  
-✓ Timing analysis and power optimization  
-✓ Design rule checking and layout versus schematic verification  
+- ✓ Complete ASIC design flow
+- ✓ RTL coding & verification using Verilog
+- ✓ Logic synthesis & technology mapping
+- ✓ Physical design including floorplanning & routing
+- ✓ Timing & power optimization
+- ✓ DRC/LVS verification
 
 ---
 
 ## 📚 References
 
-1. **A. K. Sahu and D. S. Kushwah**, "A Review on Different Parallel Prefix Adders for High Speed and Low Power Applications," *International Journal of Scientific Research and Engineering Trends (IJSRET)*, vol. 9, no. 4, pp. 317-321, Jul.-Aug. 2023.
-
-2. **A. Mishra and N. Sharma**, "Design and Performance Analysis of 64-bit Kogge Stone Adder using GDI and FinFET Technique," *International Research Journal of Engineering and Technology (IRJET)*, vol. 7, no. 3, pp. 4185-4190, Mar. 2020.
-
-3. **ElProCus**, "Kogge Stone Adder: Circuit, Design, Advantages & Its Applications," [Online]. Available: https://www.elprocus.com/kogge-stone-adder/
+1. A. K. Sahu and D. S. Kushwah, "A Review on Different Parallel Prefix Adders for High Speed and Low Power Applications," IJSRET, 2023.
+2. A. Mishra and N. Sharma, "Design and Performance Analysis of 64-bit Kogge Stone Adder using GDI and FinFET Technique," IRJET, 2020.
+3. ElProCus, "Kogge Stone Adder: Circuit, Design, Advantages & Its Applications."
 
 ---
 
@@ -531,13 +523,13 @@ Result: ✅ PASS
 <div align="center">
 
 | **Category** | **Tools** |
-|:------------:|:----------|
-| **HDL** | Verilog HDL |
-| **Simulation** | Xilinx Vivado |
-| **Synthesis** | Cadence Genus |
-| **Place & Route** | Cadence Innovus |
-| **Technology** | 90nm & 180nm CMOS Libraries |
-| **Verification** | Custom Testbench, DRC, LVS |
+|:-------------|:----------|
+| HDL | Verilog HDL |
+| Simulation | Xilinx Vivado |
+| Synthesis | Cadence Genus |
+| Place & Route | Cadence Innovus |
+| Technology | 90nm & 180nm CMOS Libraries |
+| Verification | Custom Testbench, DRC, LVS |
 
 </div>
 
@@ -549,51 +541,57 @@ Result: ✅ PASS
 <summary><b>Q: Why is the 180nm design faster despite being an older technology?</b></summary>
 
 A: The 180nm design appears faster due to different synthesis constraints:
-- It uses **typical** corner (vs. **slow** for 90nm)
-- It has **tighter timing constraint** (4ns vs. 8ns)
+- It uses typical corner (vs. slow for 90nm)
+- It has tighter timing constraint (4ns vs. 8ns)
 - True comparison requires identical PVT corners
+
 </details>
 
 <details>
 <summary><b>Q: Can this design be scaled to 16-bit or 32-bit?</b></summary>
 
-A: Yes! The design is parameterized with a `PRECISION` parameter. Simply change:
+A: Yes! The design is parameterized. Change:
+
 ```verilog
 parameter PRECISION = 16;  // for 16-bit
 parameter PRECISION = 32;  // for 32-bit
 ```
-The prefix stages will automatically adjust to log₂(n).
+
+Prefix stages auto-adjust to log₂(n).
+
 </details>
 
 <details>
 <summary><b>Q: What is the maximum operating frequency?</b></summary>
 
-A: Based on post-synthesis results:
-- **90nm (slow corner)**: ~487 MHz (2.05ns critical path)
-- **180nm (typical corner)**: ~747 MHz (1.339ns critical path)
-- Actual frequency depends on PVT corner and routing parasitics
+A:
+- 90nm (slow corner): ~487 MHz
+- 180nm (typical corner): ~747 MHz
+
+Depends on PVT corner and routing parasitics.
+
 </details>
 
 <details>
-<summary><b>Q: How does Kogge-Stone compare to Carry Look-ahead Adder?</b></summary>
+<summary><b>Q: How does Kogge-Stone compare to CLA?</b></summary>
 
-A: 
-- **Kogge-Stone**: Faster (minimum depth), but more area/power
-- **CLA**: Slower than Kogge-Stone, but less area
-- **Use Kogge-Stone** when speed is critical
-- **Use CLA** for balanced performance
+A:
+- **Kogge-Stone** → Faster, higher area/power
+- **CLA** → Slower, lower area
+
+Use Kogge-Stone for speed-critical designs.
+
 </details>
 
 <details>
 <summary><b>Q: Is this design fabrication-ready?</b></summary>
 
-A: Yes! The design has:
+A: Yes!
 - ✅ DRC clean layout
 - ✅ LVS verified
 - ✅ Timing closure
 - ✅ GDSII generated
 
-Ready for tapeout with appropriate foundry PDK.
 </details>
 
 ---
@@ -602,33 +600,32 @@ Ready for tapeout with appropriate foundry PDK.
 
 ### Planned Improvements
 
-- [ ] **16-bit & 32-bit Variants**: Extend design to wider operands
-- [ ] **FinFET Technology**: Implementation in 7nm/5nm nodes
-- [ ] **Low-Power Modes**: Add clock gating and power domains
-- [ ] **Pipeline Stages**: Add registers for higher throughput
-- [ ] **Formal Verification**: Property checking using formal tools
-- [ ] **Multi-Vt Optimization**: Use multiple threshold voltages
-- [ ] **Temperature Sensing**: Add on-chip temperature monitors
-- [ ] **BIST Integration**: Built-in self-test circuitry
+- [ ] 16-bit & 32-bit Variants
+- [ ] FinFET (7nm/5nm) Implementation
+- [ ] Clock Gating for Low Power
+- [ ] Pipeline Stages for Throughput
+- [ ] Formal Verification
+- [ ] Multi-Vt Optimization
+- [ ] On-Chip Temperature Sensing
+- [ ] BIST Integration
 
 ### Research Opportunities
 
-- 🔬 Comparison with quantum-dot cellular automata (QCA) implementation
-- 🔬 Analysis of radiation hardening for space applications
-- 🔬 Machine learning-based optimization of prefix tree structure
-- 🔬 3D IC implementation with through-silicon vias (TSVs)
+- Quantum-dot cellular automata (QCA)
+- Radiation hardening for space
+- ML-based prefix optimization
+- 3D IC (TSV-based) implementation
 
---- 
+---
 
 ## 🤝 Contributing
 
-Contributions are welcome! If you'd like to improve this project:
+Contributions are welcome!
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+1. Fork the repo
+2. Create a feature branch
+3. Commit your changes
+4. Push and open a PR
 
 ---
 

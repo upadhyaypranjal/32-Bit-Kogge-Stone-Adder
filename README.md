@@ -143,22 +143,33 @@ This associative operator enables parallel prefix computation across all bit pos
 
 ---
 
-## 📊 Results
+# 📘 Full Comparison Report Generator — 90nm vs 180nm Kogge-Stone Adder
+
+report_md = r"""
+# 🧮 Kogge–Stone Adder: Technology Node Comparison (90 nm vs 180 nm)
+
+---
+
+## 📊 Results Summary
 
 ### 🧩 Overall Performance Summary
 
 <div align="center">
 
-| **Technology Node** | **Total Area (μm²)** | **Critical Path Delay (ns)** | **Worst Slack (ns)** | **Total Power (μW)** | **Cell Count** |
-|:-------------------:|:--------------------:|:-----------------------------:|:--------------------:|:--------------------:|:--------------:|
-| **90 nm CMOS**      | 706.358              | 3.25                          | 2.75                 | 87.93                | 120            |
-| **180 nm CMOS**     | 2448.232             | 4.186                         | 1.814                | 458.664              | 128            |
+| **Technology Node** | **Total Area (μm²)** | **Critical Path Delay (ns)** | **Estimated Max Frequency (MHz)** | **Total Power (mW)** | **Cell Count** |
+|:-------------------:|:--------------------:|:-----------------------------:|:--------------------------------:|:--------------------:|:--------------:|
+| **90 nm CMOS**      | 739.491              | 6.177                         | 161.89                           | 0.06365              | 126            |
+| **180 nm CMOS**     | 2285.237             | 6.642                         | 150.56                           | 0.217374             | 90             |
 
 </div>
 
 ---
 
-### ⚡ Pre-Layout Synthesis Metrics — 90 nm Technology
+## ⚙️ Pre-Layout Synthesis Results
+
+These values represent the **synthesis-only** stage before physical layout, wire parasitics, and placement effects.
+
+### 🔹 90 nm Technology — Pre-Layout Synthesis Metrics
 
 <div align="center">
 
@@ -179,7 +190,7 @@ This associative operator enables parallel prefix computation across all bit pos
 
 ---
 
-### ⚙️ Pre-Layout Synthesis Metrics — 180 nm Technology
+### 🔹 180 nm Technology — Pre-Layout Synthesis Metrics
 
 <div align="center">
 
@@ -200,65 +211,103 @@ This associative operator enables parallel prefix computation across all bit pos
 
 ---
 
-### 📊 Analysis of Differentiating Factors
+## 🧩 Post-Layout Synthesis Results (Extracted from Reports)
 
-> **⚠️ Important Note:**  
-> The **pre-layout synthesis results** presented here are not a direct "apples-to-apples" comparison due to variations in libraries, corners, and synthesis constraints.  
-> The following analysis explains how these factors influenced the final performance, area, and power metrics.
+These results are **after place-and-route**, using your actual `.rpt` data — including routing parasitics and real cell placements.
+
+### ⚡ 90 nm Technology — Post-Layout Metrics
 
 <div align="center">
 
-| **Factor / Constraint** | **90nm Synthesis Run** | **180nm Synthesis Run** | **Professional Impact Analysis** |
-|:------------------------|:-----------------------|:------------------------|:---------------------------------|
-| **1. Operating Conditions** | Synthesized using the **`typical`** corner, representing nominal voltage and temperature. | Synthesized using the **`typical`** corner as well. | Both runs use comparable operating corners, ensuring a fair baseline comparison of technology scaling rather than environmental variation. |
-| **2. Timing Slack** | Achieved a **positive slack of 2.75 ns**, indicating that timing closure was comfortably achieved. | Achieved a **positive slack of 1.814 ns**, showing that the design meets timing but with tighter margins. | The 90 nm implementation shows better timing margin due to smaller gate delays and faster transistor switching at reduced feature sizes. |
-| **3. Power Profile** | Total power: **87.93 µW**, with **82.96 µW dynamic** and **4.72 µW leakage**. | Total power: **458.664 µW**, with **330.384 µW dynamic** and **128.28 µW leakage**. | The 90 nm node offers nearly **5× lower total power** due to reduced capacitance and supply voltage, though leakage becomes a growing concern as dimensions shrink. |
-| **4. Area Footprint** | Total area: **706.358 µm²**. | Total area: **2448.232 µm²**. | A clear demonstration of **technology scaling**—the 90 nm design achieves a **~3.5× reduction in silicon area**, enabling denser and more cost-efficient integration. |
-| **5. Cell Composition** | **120 total cells** (96 logical, 24 inverter). | **128 total cells** (100 logical, 28 inverter). | Both implementations maintain similar logic composition, showing that the performance differences arise primarily from transistor-level scaling rather than architectural differences. |
+| **Parameter**          | **Value**  | **Unit**  |
+|:-----------------------|:----------:|:----------:|
+| **Total Area**         | 739.491    | μm²        |
+| **Critical Path Delay**| 6.177      | ns         |
+| **Estimated Frequency**| 161.89     | MHz        |
+| **Total Power**        | 0.06365    | mW         |
+| **Corner**             | Typical    | —          |
+| **Total Cell Count**   | 126        | —          |
+| ┗ **Observation**      | Compact, low-power design with strong density scaling |
 
 </div>
 
 ---
 
-### 🎯 Key Takeaways
-
-- ✅ **Technology Scaling Advantage** – The 90 nm process achieves **smaller area, higher performance, and lower power** than 180 nm.  
-- ✅ **Timing Efficiency** – Both designs achieve strong positive slack, but the 90 nm version demonstrates faster gate delays and superior switching characteristics.  
-- ✅ **Power Efficiency** – While dynamic power drops significantly at 90 nm, **leakage power becomes non-negligible**, requiring advanced low-power design strategies.  
-- ✅ **Density Gains** – The area reduction of nearly **70%** between 180 nm and 90 nm nodes underscores the benefit of modern CMOS scaling.  
-- ✅ **Design Scalability** – Minimal logical restructuring is required when migrating the Kogge–Stone Adder from 180 nm to 90 nm, confirming that the architecture scales efficiently across nodes.
-
----
-
-### ✅ Synthesis & Verification Results (90 nm)
+### ⚙️ 180 nm Technology — Post-Layout Metrics
 
 <div align="center">
 
-| **Metric** | **Status** | **Description** |
-|:-----------|:----------:|:----------------|
-| **Timing** | ✅ Clean | All paths meet timing constraints with +2.75 ns slack |
-| **DRC** | ✅ Clean | No design rule violations observed |
-| **LVS** | ✅ Clean | Layout matches schematic accurately |
-| **Power** | ✅ Optimized | Dynamic and leakage power well balanced |
+| **Parameter**          | **Value**  | **Unit**  |
+|:-----------------------|:----------:|:----------:|
+| **Total Area**         | 2285.237   | μm²        |
+| **Critical Path Delay**| 6.642      | ns         |
+| **Estimated Frequency**| 150.56     | MHz        |
+| **Total Power**        | 0.217374   | mW         |
+| **Corner**             | Typical    | —          |
+| **Total Cell Count**   | 90         | —          |
+| ┗ **Observation**      | Larger devices and longer interconnects lead to higher power and delay |
 
 </div>
 
 ---
 
-### ✅ Synthesis & Verification Results (180 nm)
+## 📊 Comparative Analysis
 
 <div align="center">
 
-| **Metric** | **Status** | **Description** |
-|:-----------|:----------:|:----------------|
-| **Timing** | ✅ Clean | Meets timing constraints with +1.814 ns slack |
-| **DRC** | ✅ Clean | No design rule violations reported |
-| **LVS** | ✅ Clean | Layout-to-schematic verification successful |
-| **Power** | ⚡ Moderate | Higher dynamic and leakage due to larger geometry |
+| **Factor / Constraint** | **90 nm Node** | **180 nm Node** | **Analysis** |
+|:------------------------|:----------------|:----------------|:-------------|
+| **1. Operating Corner** | Typical | Typical | Fair comparison at nominal voltage and temperature. |
+| **2. Area Footprint** | 739.49 µm² | 2285.24 µm² | 90 nm achieves ~3.1× smaller silicon area. |
+| **3. Power Consumption** | 0.06365 mW | 0.21737 mW | 90 nm consumes ~3.4× less power. |
+| **4. Critical Path Delay** | 6.177 ns | 6.642 ns | 90 nm is ~7% faster in delay. |
+| **5. Frequency Capability** | 161.89 MHz | 150.56 MHz | 90 nm supports slightly higher operating frequency. |
+| **6. Cell Count** | 126 | 90 | 180 nm uses fewer but larger cells; 90 nm maps finer granularity. |
 
 </div>
 
 ---
+
+## 🎯 Key Observations
+
+- ✅ **Technology Scaling Advantage:** 90 nm offers **3× area and 3× power efficiency** compared to 180 nm.  
+- ⚡ **Timing Efficiency:** 90 nm exhibits ~7% lower delay, resulting in higher achievable clock speeds.  
+- 💡 **Power Behavior:** Dynamic power reduces significantly, while leakage power may rise in advanced nodes.  
+- 🧩 **Design Scalability:** The Kogge–Stone Adder architecture scales efficiently across nodes with no redesign.  
+- 🔬 **EDA Flow Validation:** Post-layout timing and power correlate well with synthesis expectations.
+
+---
+
+## ✅ Verification Summary
+
+<div align="center">
+
+| **Metric** | **90 nm** | **180 nm** | **Remarks** |
+|:-----------|:----------:|:----------:|:------------|
+| **Timing** | ✅ Clean | ✅ Clean | Both meet constraints; 90 nm has better slack margin. |
+| **DRC**    | ✅ Clean | ✅ Clean | No violations reported. |
+| **LVS**    | ✅ Clean | ✅ Clean | Layouts match schematic. |
+| **Power**  | ✅ Optimized | ⚡ Moderate | 90 nm more power-efficient. |
+
+</div>
+
+---
+
+## 🧭 Conclusion
+
+> The **90 nm implementation** of the Kogge–Stone Adder achieves **smaller area, lower power, and slightly higher frequency** compared to 180 nm.  
+> Results confirm classical CMOS scaling: reduced geometry improves density and efficiency while maintaining performance stability.
+
+---
+"""
+
+# Save to file
+output_path = "/mnt/data/Kogge_Stone_90nm_vs_180nm_Report.md"
+with open(output_path, "w") as f:
+    f.write(report_md)
+
+print("✅ Markdown report generated successfully!")
+print("📄 File saved to:", output_path)
 
 ### ⚖️ Adder Architecture Comparison
 

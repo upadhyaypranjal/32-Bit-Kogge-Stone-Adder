@@ -521,12 +521,12 @@ Result: ✅ PASS
 <div align="center">
 
 #### 180 nm Technology
-![180nm Gate-Level Schematic](./images/genus_schematic_90nm.png)
+![180nm Gate-Level Schematic](./images/genus_schematic_180nm.png)
 
 *Post-synthesis gate-level schematic for 180 nm CMOS technology*
 
 #### 90 nm Technology
-![90nm Gate-Level Schematic](./images/genus_schematic_180nm.png)
+![90nm Gate-Level Schematic](./images/genus_schematic_90nm.png)
 
 *Post-synthesis gate-level schematic for 90 nm CMOS technology*
 

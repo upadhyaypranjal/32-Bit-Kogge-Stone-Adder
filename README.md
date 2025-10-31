@@ -73,7 +73,7 @@ The Kogge-Stone Adder operates in three distinct stages:
          └─────────────────┘
 ```
 
-![Kogge-Stone Adder Architecture](./images/arch.png)
+![Kogge-Stone Adder Architecture](./images/arch_32.png)
 
 ### Prefix Operator
 
@@ -369,7 +369,7 @@ Post-layout metrics include routing parasitics, real cell placements, and reflec
 
 ### RTL Simulation Waveforms
 
-![Simulation Waveforms](./images/waveforms.png)
+![Simulation Waveforms](./images/wave_32bit.png)
 
 *Functional verification demonstrating correct 32-bit addition and overflow detection across comprehensive test vectors.*
 
@@ -521,12 +521,12 @@ Result: ✅ PASS
 <div align="center">
 
 #### 180 nm Technology
-![180nm Gate-Level Schematic](./images/genus_schematic.png)
+![180nm Gate-Level Schematic](./images/genus_schematic_90nm.png)
 
 *Post-synthesis gate-level schematic for 180 nm CMOS technology*
 
 #### 90 nm Technology
-![90nm Gate-Level Schematic](./images/genus_schematic_90.png)
+![90nm Gate-Level Schematic](./images/genus_schematic_180nm.png)
 
 *Post-synthesis gate-level schematic for 90 nm CMOS technology*
 
@@ -542,13 +542,13 @@ Result: ✅ PASS
 
 **2D Layout View**
 
-![180nm Layout 2D](./images/layout_180.png)
+![180nm Layout 2D](./images/layout_180nm.png)
 
 *180 nm technology — 2D layout view showing complete routed design with standard cell placement*
 
 **3D Layout View**
 
-![180nm Layout 3D](./images/layout_180_3d.png)
+![180nm Layout 3D](./images/layout_180nm_3d.png)
 
 *180 nm technology — 3D perspective view illustrating multi-layer metal interconnect stack*
 
@@ -560,13 +560,13 @@ Result: ✅ PASS
 
 **2D Layout View**
 
-![90nm Layout 2D](./images/layout_90.png)
+![90nm Layout 2D](./images/layout_90nm.png)
 
 *90 nm technology — 2D layout view demonstrating optimized density and advanced routing*
 
 **3D Layout View**
 
-![90nm Layout 3D](./images/lay_90_3d.png)
+![90nm Layout 3D](./images/lay_90nm_3d.png)
 
 *90 nm technology — 3D perspective view showcasing improved layout efficiency and compact design*
 

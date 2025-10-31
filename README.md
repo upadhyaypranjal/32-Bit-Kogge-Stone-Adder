@@ -75,6 +75,72 @@ The Kogge-Stone Adder operates in three distinct stages:
 
 ![Kogge-Stone Adder Architecture](./images/arch_32.png)
 
+---
+
+## 🧠 32-bit Kogge–Stone Adder Architecture — Theoretical Overview
+
+The **Kogge–Stone Adder (KSA)** is a parallel prefix carry lookahead adder, widely regarded as one of the fastest architectures for large word-length arithmetic due to its **logarithmic carry computation time** and **high fan-out efficiency**.
+
+It minimizes the carry propagation delay by generating and propagating carry signals in a tree-like structure rather than through a ripple chain.
+
+### ⚙️ Working Principle
+
+1. **Generate (G) and Propagate (P) Computation**
+   - Each bit pair \((A_i, B_i)\) produces:
+     \[
+     G_i = A_i \cdot B_i \quad , \quad P_i = A_i \oplus B_i
+     \]
+   - These signals represent whether a carry will be generated or propagated by each bit position.
+
+2. **Prefix Tree (Carry Generation Network)**
+   - The prefix network performs parallel computation of carry signals across multiple hierarchical levels.
+   - For each level \( j \):
+     \[
+     G_{i:j} = G_i + (P_i \cdot G_{i-1:j})
+     \]
+     \[
+     P_{i:j} = P_i \cdot P_{i-1:j}
+     \]
+   - This recursive computation allows carry information to be distributed in **O(log₂N)** stages.
+
+3. **Sum Computation**
+   - Once carries are known, the sum bits are calculated as:
+     \[
+     S_i = P_i \oplus C_i
+     \]
+     where \(C_i\) is the carry into the \(i^{th}\) bit.
+
+### 📐 Structural Characteristics (for 32-bit Implementation)
+
+- **Number of Stages:** 5 prefix levels for 32 bits (\(\log_2 32 = 5\))
+- **Type of Nodes:** Each prefix node computes a **black cell** (both G and P) or a **gray cell** (only G)
+- **Fan-out:** Limited to 2, ensuring balanced load across stages
+- **Parallelism:** All carry computations occur concurrently across multiple levels
+- **Latency:** Propagation delay ≈ \( \log_2(N) \times t_{gate} \)
+
+### 🧩 Advantages of the 32-bit KSA
+
+| **Feature** | **Advantage** |
+|:-------------|:--------------|
+| **Parallel Carry Computation** | Reduces delay significantly compared to ripple or carry-select adders |
+| **Regular Layout Structure** | Well-suited for VLSI implementation and EDA optimization |
+| **High Speed** | Critical path depth scales logarithmically with bit-width |
+| **Scalable Design** | Easily extendable to 64-bit and 128-bit adders with similar structural regularity |
+
+### 🧮 Comparative Insight
+
+Compared to traditional **Ripple Carry Adders (RCA)** or **Carry Lookahead Adders (CLA)**, the **Kogge–Stone Adder** offers:
+- **~5× lower delay** for 32-bit operations,
+- **Higher wiring complexity**, but
+- **Superior performance** in high-frequency datapath circuits (ALUs, DSPs, multipliers).
+
+---
+
+> 🧠 **Summary:**  
+> The 32-bit Kogge–Stone adder leverages parallel prefix computation to achieve **minimal carry latency** and **maximum throughput**, making it a cornerstone in **modern high-speed arithmetic logic design**.
+
+---
+
 ### Prefix Operator
 
 The core operation combines generate and propagate pairs:
@@ -529,8 +595,6 @@ Result: ✅ PASS
 *Post-synthesis gate-level schematic for 90 nm CMOS technology*
 
 </div>
-
----
 
 ---
 

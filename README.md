@@ -98,13 +98,13 @@ This associative operator enables parallel prefix computation across all bit pos
                          ▼
 ┌─────────────────────────────────────────────────────────────┐
 │                   RTL DESIGN (Verilog)                      │
-│         • Parameterized architecture                         │
+│         • Parameterized architecture                        │
 │         • 5-stage prefix network                            │
 └────────────────────────┬────────────────────────────────────┘
                          │
                          ▼
 ┌─────────────────────────────────────────────────────────────┐
-│              FUNCTIONAL VERIFICATION                         │
+│              FUNCTIONAL VERIFICATION                        │
 │         • Testbench with 100,000+ test cases                │
 │         • Self-checking assertions                          │
 │         • Waveform analysis                                 │

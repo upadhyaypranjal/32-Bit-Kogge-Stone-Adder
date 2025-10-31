@@ -375,8 +375,6 @@ Post-layout metrics include routing parasitics, real cell placements, and reflec
 
 ---
 
----
-
 ## ⏱️ Timing Analysis
 
 ### ⚡ Critical Path Breakdown — 90 nm Node

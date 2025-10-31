@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚡ 8-Bit Kogge-Stone Adder: RTL to GDSII
+# ⚡ 32-Bit Kogge-Stone Adder: RTL to GDSII
 
 </div>
 

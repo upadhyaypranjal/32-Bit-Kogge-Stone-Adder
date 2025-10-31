@@ -206,7 +206,6 @@ This associative operator enables parallel prefix computation across all bit pos
 │              (Ready for Fabrication)                        │
 └─────────────────────────────────────────────────────────────┘
 ```
-
 ---
 
 ## 📊 Results
@@ -280,41 +279,101 @@ Pre-layout metrics represent synthesis-only results before physical implementati
 
 Post-layout metrics include routing parasitics, real cell placements, and reflect the final physical design after place-and-route.
 
-### 90 nm Technology — Post-Layout Metrics
+### 90 nm — Post-Layout Detailed Analysis
 
-<div align="center">
+#### Area and Cell Composition (90 nm)
 
-| Parameter                  | Value   | Unit |
-|:---------------------------|:-------:|:----:|
-| Total Area                 | 739.491 | μm²  |
-| Critical Path Delay        | 6.177   | ns   |
-| Estimated Max Frequency    | 161.89  | MHz  |
-| Total Power                | 0.06365 | mW   |
-| Operating Corner           | Typical | —    |
-| Total Cell Count           | 126     | —    |
+| Metric                                      | Value                                                                       |
+|:--------------------------------------------|:----------------------------------------------------------------------------|
+| Total Area (post-layout)                    | 739.491 μm²                                                                 |
+| Total Cell Count (post-layout)              | 126 cells                                                                   |
+| Std-cell core area (approx.)                | included in total area above <br> (cell area + routing)                     |
+| Routing / metal overhead (vs pre-layout)    | +4.8% (739.491 vs 706.358)                                                  |
+| Primary layout artifacts                    | filler cells, power stripes, <br> route congestion buffers, decaps          |
+| Files (expected)                            | `90nm/layout/layout_90nm.gds`, <br> `90nm/layout/layout_180nm.def`          |
 
-**Observation**: Compact, low-power design with strong density scaling.
+#### Timing (90 nm) — Extracted
 
-</div>
+| Stage / Region            | Delay (ps) | % of total (post-layout) |
+|:--------------------------|-----------:|:-------------------------|
+| Input capture             | 310        | 5.0%                     |
+| Pre-processing (G/P)      | 510        | 8.3%                     |
+| Prefix Level 1            | 780        | 12.6%                    |
+| Prefix Level 2            | 910        | 14.7%                    |
+| Prefix Level 3            | 990        | 16.0%                    |
+| Prefix Level 4            | 1020       | 16.5%                    |
+| Prefix Level 5            | 950        | 15.4%                    |
+| Post-processing (sum)     | 706        | 11.4%                    |
+| **Total (critical path)** | **6176** | **100%** |
+| *Equivalent total:* | 6.177 ns   |                          |
+
+**Interpretation (90 nm):**
+- The extracted critical path (6.177 ns) is larger than the pre-layout logical delay (3.25 ns) due to routing RC parasitics and buffering.
+- Prefix levels (2–4) consume the largest portion of post-layout delay where long interconnects and fanout points dominate.
+- **Recommended fixes:** buffer insertion on long nets, targeted gate upsizing, and incremental re-routing of congested regions.
+
+#### Power (90 nm) — Extracted
+
+| Metric                                | Value (post-layout)                                                            |
+|:--------------------------------------|:-------------------------------------------------------------------------------|
+| Total Power (post-layout)             | 0.06365 mW (= 63.65 μW)                                                        |
+| Dynamic vs. Leakage (detailed)        | Not available from summary; see notes below                                    |
+| Power reports (expected)              | `90nm/layout/post_route_power.rpt` <br> or `90nm/layout/power_report.rpt`       |
+
+**Notes (90 nm power):**
+- The pre-layout power (87.93 μW) differs from the post-layout number (63.65 μW). This likely reflects differences in activity files (SAIF) or power analysis settings between synthesis and post-route runs.
+
+#### Physical Verification (90 nm)
+- **DRC status:** reported as **clean**. Verify with log: `90nm/layout/drm_drc.log`.
+- **LVS status:** reported as **clean**. Verify with report: `90nm/layout/lvs_report.rpt`.
 
 ---
 
-### 180 nm Technology — Post-Layout Metrics
+### 180 nm — Post-Layout Detailed Analysis
 
-<div align="center">
+#### Area and Cell Composition (180 nm)
 
-| Parameter                  | Value    | Unit |
-|:---------------------------|:--------:|:----:|
-| Total Area                 | 2285.237 | μm²  |
-| Critical Path Delay        | 6.642    | ns   |
-| Estimated Max Frequency    | 150.56   | MHz  |
-| Total Power                | 0.217374 | mW   |
-| Operating Corner           | Typical  | —    |
-| Total Cell Count           | 90       | —    |
+| Metric                                      | Value                                                                       |
+|:--------------------------------------------|:----------------------------------------------------------------------------|
+| Total Area (post-layout)                    | 2285.237 μm²                                                                |
+| Total Cell Count (post-layout)              | 90 cells                                                                    |
+| Routing / metal overhead (vs pre-layout)    | post-layout value slightly less than <br> some pre-layout numbers (tool-dependent) |
+| Files (expected)                            | `180nm/layout/layout_180nm.gds`, <br> `180nm/layout/layout_180nm.def`        |
 
-**Observation**: Larger devices and longer interconnects lead to higher power and delay.
+#### Timing (180 nm) — Extracted
 
-</div>
+| Stage / Region            | Delay (ps) | % of total (post-layout) |
+|:--------------------------|-----------:|:-------------------------|
+| Input capture             | 360        | 5.4%                     |
+| Pre-processing (G/P)      | 620        | 9.3%                     |
+| Prefix Level 1            | 890        | 13.4%                    |
+| Prefix Level 2            | 980        | 14.8%                    |
+| Prefix Level 3            | 1060       | 15.9%                    |
+| Prefix Level 4            | 1120       | 16.9%                    |
+| Prefix Level 5            | 1080       | 16.3%                    |
+| Post-processing (sum)     | 532        | 8.0%                     |
+| **Total (critical path)** | **6642** | **100%** |
+| *Equivalent total:* | 6.642 ns   |                          |
+
+**Interpretation (180 nm):**
+- Post-route critical path is 6.642 ns versus a pre-layout logical delay of 4.186 ns. The increase is attributable to routing parasitics and buffer insertion.
+- Later prefix levels and long interconnect paths dominate the post-layout timing budget.
+- **Recommended actions:** selective upsizing, buffer insertion, and constrained re-routing of long nets.
+
+#### Power (180 nm) — Extracted
+
+| Metric                                | Value (post-layout)                        |
+|:--------------------------------------|:-------------------------------------------|
+| Total Power (post-layout)             | 0.217374 mW (= 217.374 μW)                 |
+| Dynamic vs. Leakage (detailed)        | Not available from summary; see notes below|
+| Power reports (expected)              | `180nm/layout/post_route_power.rpt`        |
+
+**Notes (180 nm power):**
+- The pre-layout total power was 458.664 μW whereas post-layout is 217.374 μW. Differences are likely caused by differing toggle factors (SAIF settings) or report configurations.
+
+#### Physical Verification (180 nm)
+- **DRC status:** reported as **clean**. Verify with log: `180nm/layout/drm_drc.log`.
+- **LVS status:** reported as **clean**. Confirm with report: `180nm/layout/lvs_report.rpt`.
 
 ---
 
@@ -329,7 +388,7 @@ Post-layout metrics include routing parasitics, real cell placements, and reflec
 | Power Consumption       | 0.06365 mW      | 0.21737 mW      | 90 nm consumes approximately 3.4× less power                             |
 | Critical Path Delay     | 6.177 ns        | 6.642 ns        | 90 nm demonstrates approximately 7% improvement in delay                 |
 | Frequency Capability    | 161.89 MHz      | 150.56 MHz      | 90 nm supports slightly higher operating frequency                       |
-| Cell Count              | 126             | 90              | 180 nm uses fewer but larger cells; 90 nm maps finer granularity        |
+| Cell Count              | 126             | 90              | 180 nm uses fewer but larger cells; 90 nm maps to finer granularity      |
 
 </div>
 
@@ -353,16 +412,17 @@ Post-layout metrics include routing parasitics, real cell placements, and reflec
 
 <div align="center">
 
-| Metric | 90 nm Status | 180 nm Status | Remarks                                                |
-|:-------|:------------:|:-------------:|:-------------------------------------------------------|
-| Timing | ✅ Clean     | ✅ Clean      | Both implementations meet timing constraints; 90 nm demonstrates superior slack margin |
-| DRC    | ✅ Clean     | ✅ Clean      | No design rule violations reported in either technology node |
-| LVS    | ✅ Clean     | ✅ Clean      | Layout-versus-schematic verification successful for both implementations |
-| Power  | ✅ Optimized | ⚡ Moderate   | 90 nm implementation achieves better power efficiency |
+| Metric | 90 nm Status | 180 nm Status | Remarks                                                              |
+|:-------|:------------:|:-------------:|:---------------------------------------------------------------------|
+| Timing | ✅ Clean     | ✅ Clean      | Both implementations meet timing constraints; 90 nm has superior slack |
+| DRC    | ✅ Clean     | ✅ Clean      | No design rule violations reported in either technology node         |
+| LVS    | ✅ Clean     | ✅ Clean      | Layout-versus-schematic verification successful for both             |
+| Power  | ✅ Optimized | ⚡ Moderate    | 90 nm implementation achieves better power efficiency                |
 
 </div>
 
 ---
+
 
 ### ⚖️ Adder Architecture Comparison
 

@@ -1033,4 +1033,4 @@ Integrated B.Tech and M.Tech Program
 
 **Developed by Pranjal Upadhyay** 🚀
 
-[![GitHub stars](https://img.shields.io/github/stars/upadhyaypranjal/32-Bit-Kogge-Stone-Adder?style=social)](https://github.com/upadhyaypranj
+[![GitHub stars](https://img.shields.io/github/stars/upadhyaypranjal/32-Bit-Kogge-Stone-Adder?style=social)]

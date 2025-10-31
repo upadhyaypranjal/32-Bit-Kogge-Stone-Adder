@@ -42,7 +42,7 @@ The Kogge-Stone Adder operates in three distinct stages:
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                    INPUT OPERANDS                        │
+│                    INPUT OPERANDS                       │
 │                   A[31:0]  B[31:0]                      │
 └─────────────────┬───────────────────────────────────────┘
                   │

@@ -995,7 +995,7 @@ copies or substantial portions of the Software.
 - 📧 Email: pranjal2004upadhyay@gmail.com
 - 💼 LinkedIn: [linkedin.com/in/pranjalupadhyay0142](https://www.linkedin.com/in/pranjalupadhyay0142)
 - 🐱 GitHub: [github.com/upadhyaypranjal](https://github.com/upadhyaypranjal)
-- 🎓 Institution: IIITDM Kurnool
+- 🎓 Institution: Indian Institute of Information Technology Design and Manufacturing, Kurnool
 
 For technical inquiries, collaboration opportunities, or project-related questions, please feel free to reach out through any of the above channels.
 
@@ -1017,7 +1017,7 @@ Special thanks to all contributors who have provided feedback and suggestions fo
 
 <div align="center">
 
-## 👨‍🎓 About the Author
+## 👨‍🎓 About the Developer
 
 **Pranjal Upadhyay**  
 Roll Number: 523EC0012

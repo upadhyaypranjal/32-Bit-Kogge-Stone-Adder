@@ -1031,6 +1031,3 @@ Integrated B.Tech and M.Tech Program
 
 ### ⭐ Star this repository if you found it helpful!
 
-**Developed by Pranjal Upadhyay** 🚀
-
-[![GitHub stars](https://img.shields.io/github/stars/upadhyaypranjal/32-Bit-Kogge-Stone-Adder?style=social)]

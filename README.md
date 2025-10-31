@@ -532,43 +532,90 @@ Result: ✅ PASS
 
 ---
 
-### Physical Layout
+---
 
-#### 180 nm Implementation
+## 🧱 Physical Layout
+
+### 🧩 180 nm Implementation
 
 <div align="center">
 
-**2D Layout View**
+#### 🧾 No Layout (Pre-Layout View)
+
+![180nm No Layout](./images/nolayout_180nm.png)
+
+*Pre-layout synthesized schematic representation of the 180 nm Kogge–Stone adder before place & route.*
+
+---
+
+#### 🗺️ 2D Layout View
 
 ![180nm Layout 2D](./images/layout_180nm.png)
 
-*180 nm technology — 2D layout view showing complete routed design with standard cell placement*
+*180 nm technology — 2D layout view showing complete routed design with standard cell placement.*
 
-**3D Layout View**
+---
+
+#### 🧱 3D Layout View
 
 ![180nm Layout 3D](./images/layout_180nm_3d.png)
 
-*180 nm technology — 3D perspective view illustrating multi-layer metal interconnect stack*
+*180 nm technology — 3D perspective view illustrating multi-layer metal interconnect stack.*
 
 </div>
 
-#### 90 nm Implementation
+---
+
+### ⚙️ 90 nm Implementation
 
 <div align="center">
 
-**2D Layout View**
+#### 🧾 No Layout (Pre-Layout View)
+
+![90nm No Layout](./images/nolayout_90nm.png)
+
+*Pre-layout synthesized schematic representation of the 90 nm Kogge–Stone adder prior to physical implementation.*
+
+---
+
+#### 🗺️ 2D Layout View
 
 ![90nm Layout 2D](./images/layout_90nm.png)
 
-*90 nm technology — 2D layout view demonstrating optimized density and advanced routing*
+*90 nm technology — 2D layout view demonstrating optimized density and advanced routing.*
 
-**3D Layout View**
+---
 
-![90nm Layout 3D](./images/lay_90nm_3d.png)
+#### 🧱 3D Layout View
 
-*90 nm technology — 3D perspective view showcasing improved layout efficiency and compact design*
+![90nm Layout 3D](./images/layout_90nm_3d.png)
+
+*90 nm technology — 3D perspective view showcasing improved layout efficiency and compact design.*
 
 </div>
+
+---
+
+### 🔍 Layout Comparison Summary
+
+<div align="center">
+
+| **Technology Node** | **View Type**      | **File Reference**          | **Description** |
+|:--------------------:|:------------------:|:----------------------------:|:----------------|
+| **180 nm**           | No Layout (Schematic) | `nolayout_180nm.png` | Pre-layout synthesized netlist representation. |
+| **180 nm**           | 2D Layout          | `layout_180nm.png`          | Full chip 2D routed layout. |
+| **180 nm**           | 3D Layout          | `layout_180nm_3d.png`       | 3D metal stack view. |
+| **90 nm**            | No Layout (Schematic) | `nolayout_90nm.png` | Pre-layout schematic view before PnR. |
+| **90 nm**            | 2D Layout          | `layout_90nm.png`          | Post-layout routed 2D visualization. |
+| **90 nm**            | 3D Layout          | `layout_90nm_3d.png`       | Multi-layer 3D metal routing view. |
+
+</div>
+
+---
+
+> ✅ **Interpretation:**  
+> The **no-layout views** represent synthesized designs *prior* to physical implementation, useful for analyzing logical hierarchy and gate interconnects.  
+> After placement and routing, the **2D and 3D views** demonstrate area compaction, metal layer utilization, and the scaling benefits between **180 nm** and **90 nm** technologies.
 
 ---
 

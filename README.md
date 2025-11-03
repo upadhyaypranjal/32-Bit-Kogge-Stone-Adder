@@ -485,6 +485,8 @@ Post-layout metrics include routing parasitics, real cell placements, and reflec
 
 </div>
 
+--- 
+
 ## 🖼 Visual Gallery
 
 ### RTL Simulation Waveforms

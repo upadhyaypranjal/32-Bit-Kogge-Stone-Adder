@@ -485,6 +485,7 @@ Post-layout metrics include routing parasitics, real cell placements, and reflec
 
 </div>
 ---
+</div>
 
 ## 🖼 Visual Gallery
 

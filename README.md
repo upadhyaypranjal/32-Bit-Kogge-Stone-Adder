@@ -484,8 +484,6 @@ Post-layout metrics include routing parasitics, real cell placements, and reflec
 | Leakage Power Ratio | 5.66% | 0.01% | — |
 
 </div>
----
-</div>
 
 ## 🖼 Visual Gallery
 

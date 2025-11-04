@@ -86,37 +86,34 @@ It minimizes the carry propagation delay by generating and propagating carry sig
 ### ⚙️ Working Principle
 
 1. **Generate (G) and Propagate (P) Computation**
-   - Each bit pair \((A_i, B_i)\) produces:
-     \[
-     G_i = A_i \cdot B_i \quad , \quad P_i = A_i \oplus B_i
-     \]
-   - These signals represent whether a carry will be generated or propagated by each bit position.
+   - For each bit pair (Aᵢ, Bᵢ), two signals are generated:
+     - **Generate (Gᵢ):** True if both Aᵢ and Bᵢ are 1, meaning a carry is generated.
+     - **Propagate (Pᵢ):** True if exactly one of Aᵢ or Bᵢ is 1, meaning a carry will propagate through this bit.
+   - In simpler terms, Gᵢ = Aᵢ AND Bᵢ, and Pᵢ = Aᵢ XOR Bᵢ.
 
 2. **Prefix Tree (Carry Generation Network)**
-   - The prefix network performs parallel computation of carry signals across multiple hierarchical levels.
-   - For each level \( j \):
-     \[
-     G_{i:j} = G_i + (P_i \cdot G_{i-1:j})
-     \]
-     \[
-     P_{i:j} = P_i \cdot P_{i-1:j}
-     \]
-   - This recursive computation allows carry information to be distributed in **O(log₂N)** stages.
+   - The prefix network computes carry signals in a hierarchical, parallel manner.
+   - Each level of the tree combines results from the previous level to generate new group Generate (G) and Propagate (P) signals.
+   - At every level:
+     - The new group Generate signal is obtained by combining the current bit’s generate with the propagate and generate from the lower level.
+     - The new group Propagate signal is obtained by multiplying (logical AND) the propagate signals of both levels.
+   - This process continues through multiple stages, allowing all carry signals to be computed in logarithmic time relative to the number of bits.
 
 3. **Sum Computation**
-   - Once carries are known, the sum bits are calculated as:
-     \[
-     S_i = P_i \oplus C_i
-     \]
-     where \(C_i\) is the carry into the \(i^{th}\) bit.
+   - Once all carry signals are available, each sum bit is calculated by taking the XOR of the propagate signal (Pᵢ) and the corresponding carry input (Cᵢ).
+   - In simple terms, the sum bit equals 1 when the number of ones in (Aᵢ, Bᵢ, and Cᵢ) is odd.
+
+---
 
 ### 📐 Structural Characteristics (for 32-bit Implementation)
 
-- **Number of Stages:** 5 prefix levels for 32 bits (\(\log_2 32 = 5\))
-- **Type of Nodes:** Each prefix node computes a **black cell** (both G and P) or a **gray cell** (only G)
-- **Fan-out:** Limited to 2, ensuring balanced load across stages
-- **Parallelism:** All carry computations occur concurrently across multiple levels
-- **Latency:** Propagation delay ≈ \( \log_2(N) \times t_{gate} \)
+- **Number of Stages:** 5 prefix levels are required for a 32-bit adder (since 2⁵ = 32).  
+- **Type of Nodes:** The design uses two kinds of prefix nodes — black cells (which compute both G and P) and gray cells (which compute only G).  
+- **Fan-out:** Each signal drives at most two other nodes, ensuring balanced load and better timing.  
+- **Parallelism:** Carry signals for multiple bits are computed simultaneously at each stage, providing high performance.  
+- **Latency:** The overall delay increases roughly with the logarithm of the number of bits, multiplied by the delay of a single gate stage.
+
+---
 
 ### 🧩 Advantages of the 32-bit KSA
 

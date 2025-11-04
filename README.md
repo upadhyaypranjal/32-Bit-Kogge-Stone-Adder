@@ -1013,17 +1013,12 @@ Special thanks to all contributors who have provided feedback and suggestions fo
 
 <div align="center">
 
-### 👨‍🎓 About the Developer  
-
 **Pranjal Upadhyay**  
-Roll No.: 523EC0012  
 
 Department of Electronics and Communication Engineering  
-Integrated B.Tech and M.Tech Program  
+Integrated B.Tech and M.Tech Program
 
 **Indian Institute of Information Technology Design and Manufacturing, Kurnool**
-
-</div>
 
 ### ⭐ Star this repository if you found it helpful!
 

@@ -1015,12 +1015,13 @@ Special thanks to all contributors who have provided feedback and suggestions fo
 
 ## 👨‍🎓 About the Developer
 
-**Pranjal Upadhyay**  
+# **Pranjal Upadhyay**
 
-Department of Electronics and Communication Engineering  
-Integrated B.Tech and M.Tech Program
+### Department of Electronics and Communication Engineering  
+### Integrated B.Tech and M.Tech Program  
 
-**Indian Institute of Information Technology Design and Manufacturing, Kurnool**
+## 🏛️ **Indian Institute of Information Technology, Design and Manufacturing, Kurnool**
+
 
 ---
 

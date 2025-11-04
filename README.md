@@ -813,11 +813,11 @@ innovus -init run_innovus.tcl
 
 ### Course Information
 
-**Course**: VLSI System Design (EC-307)  
+**Course**: VLSI System Design Practice (EC-307)  
 **Faculty**: Dr. P. Ranga Babu  
 **Department**: Electronics and Communication Engineering  
 **Institution**: Indian Institute of Information Technology Design and Manufacturing, Kurnool  
-**Academic Year**: 2024-2025
+**Academic Year**: 2025-2026 (Semester - 5)
 
 ### Learning Outcomes
 

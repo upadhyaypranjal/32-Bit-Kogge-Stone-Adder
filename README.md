@@ -1016,7 +1016,6 @@ Special thanks to all contributors who have provided feedback and suggestions fo
 ## 👨‍🎓 About the Developer
 
 **Pranjal Upadhyay**  
-Roll Number: 523EC0012
 
 Department of Electronics and Communication Engineering  
 Integrated B.Tech and M.Tech Program

@@ -1001,11 +1001,11 @@ For technical inquiries, collaboration opportunities, or project-related questio
 
 This project was completed with support and guidance from:
 
-- **Dr. P. Ranga Babu** — Course Instructor and Project Guide, Department of ECE, IIITDM Kurnool
-- **IIITDM Kurnool** — For providing computational resources and infrastructure
-- **Cadence Design Systems** — For access to industry-standard EDA tools
-- **Open Source Community** — For educational resources and technical documentation
-- **Research Community** — For foundational work in parallel prefix adder architectures
+- **Dr. P. Ranga Babu** — Course Instructor and Project Guide, Department of ECE, IIITDM Kurnool  
+- **IIITDM Kurnool** — For providing computational resources and infrastructure  
+- **Cadence Design Systems** — For access to industry-standard EDA tools  
+- **Open Source Community** — For educational resources and technical documentation  
+- **Research Community** — For foundational work in parallel prefix adder architectures  
 
 Special thanks to all contributors who have provided feedback and suggestions for improvement.
 
@@ -1013,18 +1013,17 @@ Special thanks to all contributors who have provided feedback and suggestions fo
 
 <div align="center">
 
-## 👨‍🎓 About the Developer
+### 👨‍🎓 About the Developer  
 
-**Pranjal Upadhyay** 
-Roll No.: 523EC0012
+**Pranjal Upadhyay**  
+Roll No.: 523EC0012  
 
 Department of Electronics and Communication Engineering  
-Integrated B.Tech and M.Tech Program
+Integrated B.Tech and M.Tech Program  
 
 **Indian Institute of Information Technology Design and Manufacturing, Kurnool**
 
-
----
+</div>
 
 ### ⭐ Star this repository if you found it helpful!
 

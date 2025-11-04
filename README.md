@@ -410,7 +410,7 @@ Post-layout metrics include routing parasitics, real cell placements, and reflec
 | Timing | ✅ Clean | ✅ Clean | Both implementations meet timing constraints; 90 nm has superior slack |
 | DRC | ✅ Clean | ✅ Clean | No design rule violations reported in either technology node |
 | LVS | ✅ Clean | ✅ Clean | Layout-versus-schematic verification successful for both |
-| Power | ✅ Optimized | ⚡ Moderate | 90 nm implementation achieves better power efficiency |
+| Power | ✅ Optimized   | ⚡ Moderate | 90 nm implementation achieves better power efficiency |
 
 </div>
 

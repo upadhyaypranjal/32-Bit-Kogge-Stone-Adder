@@ -1024,3 +1024,7 @@ Integrated Bachelor and Master of Technology
 
 ### ⭐ Star this repository if you found it helpful!
 
+---
+
+© 2025 Pranjal Upadhyay — All Rights Reserved
+
